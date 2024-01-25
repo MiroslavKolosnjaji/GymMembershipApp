@@ -1,5 +1,6 @@
 package com.example.gymmembershipapp.database;
 
+import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.util.DbUtil;
 
 import java.sql.*;
@@ -29,7 +30,7 @@ public class Database {
             connection.setAutoCommit(false);
         }catch (SQLException sqle){
             sqle.printStackTrace();
-            throw new Exception("An error occured while connecting to the database\n" + sqle.getMessage());
+            throw new DatabaseException("An error occured while connecting to the database\n" + sqle.getMessage());
         }
     }
 
@@ -39,7 +40,7 @@ public class Database {
                 connection.close();
         }catch (SQLException sqle){
             sqle.printStackTrace();
-            throw new Exception("An error occured while disconnecting from the database\n" + sqle.getMessage());
+            throw new DatabaseException("An error occured while disconnecting from the database\n" + sqle.getMessage());
         }
     }
 
@@ -48,7 +49,7 @@ public class Database {
             connection.commit();
         }catch (SQLException sqle){
             sqle.printStackTrace();
-            throw new Exception("An error occured while confirming transaction\n" + sqle.getMessage());
+            throw new DatabaseException("An error occured while confirming transaction\n" + sqle.getMessage());
         }
     }
 
@@ -57,11 +58,12 @@ public class Database {
             connection.rollback();
         }catch (SQLException sqle){
             sqle.printStackTrace();
-            throw new Exception("An error occured while canceling transaction\n" + sqle.getMessage());
+            throw new DatabaseException("An error occured while canceling transaction\n" + sqle.getMessage());
         }
     }
 
     public Connection getConnection(){
         return connection;
+
     }
 }
