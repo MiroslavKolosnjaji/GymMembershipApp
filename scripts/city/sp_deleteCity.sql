@@ -1,0 +1,10 @@
+USE gym_membership;
+
+DROP PROCEDURE IF EXISTS delete_city;
+
+DELIMITER $$
+CREATE PROCEDURE delete_city(id BIGINT)
+BEGIN
+	DELETE FROM CITY WHERE city_id = id;
+END $$
+DELIMITER ;
