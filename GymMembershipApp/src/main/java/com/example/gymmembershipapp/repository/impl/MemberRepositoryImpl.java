@@ -89,7 +89,7 @@ public class MemberRepositoryImpl implements Repository<Member, Long> {
                 e.printStackTrace();
             }
             exception.printStackTrace();
-            throw new RepositoryException("An error occured while updating member to the database");
+            throw new RepositoryException("An error occured while deleting member from the database");
         }
     }
 
@@ -123,7 +123,7 @@ public class MemberRepositoryImpl implements Repository<Member, Long> {
                 e.printStackTrace();
             }
             exception.printStackTrace();
-            throw new RepositoryException("An error occured while updating member to the database");
+            throw new RepositoryException("An error occured while loading members from database");
 
         }
     }

@@ -84,7 +84,7 @@ public class CityRepositoryImpl implements Repository<City, Long> {
                 e.printStackTrace();
             }
             exception.printStackTrace();
-            throw new RepositoryException("An error occured while deletingcity from database");
+            throw new RepositoryException("An error occured while deleting city from database");
         }
     }
 
@@ -117,7 +117,7 @@ public class CityRepositoryImpl implements Repository<City, Long> {
                 e.printStackTrace();
             }
             exception.printStackTrace();
-            throw new RepositoryException("An error occured while updating data for city in database");
+            throw new RepositoryException("An error occured while loading cites from database");
         }
     }
 
