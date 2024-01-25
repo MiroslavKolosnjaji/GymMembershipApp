@@ -36,7 +36,7 @@ public class DbUtil {
     public String getPassword(){
         return properties.getProperty(getCurrentDb() + "_password");
     }
-    
+
     private String getCurrentDb(){
         return properties.getProperty("current_db");
     }
