@@ -92,7 +92,7 @@ public class CityRepositoryImpl implements Repository<City, Long> {
     public List<City> getAll() throws RepositoryException {
 
         try {
-            List<City> cities = new ArrayList<>();
+            List<City> cityList = new ArrayList<>();
 
             String call = "CALL get_all_cities()";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
@@ -103,12 +103,13 @@ public class CityRepositoryImpl implements Repository<City, Long> {
                 String name = resultSet.getString("name");
                 String zip_code = resultSet.getString("zip_code");
 
-                cities.add(new City(id, name, zip_code));
+                cityList.add(new City(id, name, zip_code));
             }
 
             resultSet.close();
             callableStatement.close();
             db.confirmTransaction();
+            return cityList;
         } catch (SQLException | DatabaseException exception) {
             try {
                 db.cancelTransaction();
@@ -118,8 +119,6 @@ public class CityRepositoryImpl implements Repository<City, Long> {
             exception.printStackTrace();
             throw new RepositoryException("An error occured while updating data for city in database");
         }
-
-
     }
 
     @Override
