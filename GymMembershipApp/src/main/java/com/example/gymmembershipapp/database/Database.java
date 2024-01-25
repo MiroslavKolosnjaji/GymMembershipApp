@@ -20,7 +20,7 @@ public class Database {
         return INSTANCE;
     }
 
-    public void connectToDatabase() throws Exception{
+    public void connectToDatabase() throws DatabaseException{
         String url = DbUtil.getInstance().getUrl();
         String user = DbUtil.getInstance().getUrl();
         String password = DbUtil.getInstance().getPassword();
@@ -34,7 +34,7 @@ public class Database {
         }
     }
 
-    public void disconnectFromDatabase() throws Exception{
+    public void disconnectFromDatabase() throws DatabaseException{
         try{
             if(connection != null && !connection.isClosed())
                 connection.close();
@@ -44,7 +44,7 @@ public class Database {
         }
     }
 
-    public void confirmTransaction() throws Exception{
+    public void confirmTransaction() throws DatabaseException{
         try{
             connection.commit();
         }catch (SQLException sqle){
@@ -53,7 +53,7 @@ public class Database {
         }
     }
 
-    public void cancelTransaction() throws Exception{
+    public void cancelTransaction() throws DatabaseException{
         try{
             connection.rollback();
         }catch (SQLException sqle){
