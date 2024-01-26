@@ -1,0 +1,10 @@
+USE gym_membership;
+
+DROP PROCEDURE IF EXISTS delete_role;
+
+DELIMITER $$
+CREATE PROCEDURE delete_role(id BIGINT)
+BEGIN
+	DELETE FROM `ROLE` WHERE role_id = id;
+END $$
+DELIMITER ;
