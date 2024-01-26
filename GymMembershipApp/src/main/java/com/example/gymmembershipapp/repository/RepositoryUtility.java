@@ -25,7 +25,7 @@ public class RepositoryUtility {
     }
 
     private static void setParameters(CallableStatement callableStatement, Object[] params) throws SQLException {
-        for (int i = 0; i < params.size(); i++) {
+        for (int i = 0; i < params.length; i++) {
             callableStatement.setObject(i + 1, params[i]);
         }
     }
