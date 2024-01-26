@@ -103,11 +103,11 @@ public class MemberRepositoryImpl implements Repository<Member, Long> {
             ResultSet resultSet = callableStatement.executeQuery();
 
             while (resultSet.next()) {
-                Long id = resultSet.getLong(1);
-                String first_name = resultSet.getString(2);
-                String last_name = resultSet.getString(3);
-                String phone = resultSet.getString(4);
-                String email = resultSet.getString(5);
+                Long id = resultSet.getLong("member_id");
+                String first_name = resultSet.getString("first_name");
+                String last_name = resultSet.getString("last_name");
+                String phone = resultSet.getString("phone");
+                String email = resultSet.getString("email");
 
                 memberList.add(new Member(id, new Person(first_name, last_name, new Contact(phone, email)), null));
             }
