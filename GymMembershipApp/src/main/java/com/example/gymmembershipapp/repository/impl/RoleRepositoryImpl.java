@@ -26,7 +26,7 @@ public class RoleRepositoryImpl implements Repository<Role, Long> {
         try {
             String call = "CALL insert_role(?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
-            callableStatement.setString(role.getRole());
+            callableStatement.setString(1, role.getRole());
             callableStatement.execute();
 
             callableStatement.close();

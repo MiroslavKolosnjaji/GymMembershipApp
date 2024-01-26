@@ -14,6 +14,10 @@ public class City {
     public City() {
     }
 
+    public City(Long cityId) {
+        this.cityId = cityId;
+    }
+
     public City(Long cityId, String name, String zipCode) {
         this.cityId = cityId;
         this.name = name;
