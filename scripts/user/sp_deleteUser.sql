@@ -1,0 +1,10 @@
+USE gym_membership;
+
+DROP PROCEDURE IF EXISTS delete_user;
+
+DELIMITER $$
+CREATE PROCEDURE delete_user(id BIGINT)
+BEGIN
+	DELETE FROM `USER` WHERE user_id = id;
+END $$
+DELIMITER ;
