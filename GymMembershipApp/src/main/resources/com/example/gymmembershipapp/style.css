@@ -1,0 +1,38 @@
+.side_ankerpane{
+    -fx-background-color: #0f0826;
+    -fx-border-color: #220&bb;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+}
+
+.inner_pane{
+    -fx-background-color: #5033ab;   /*#1c085c*/
+    -fx-border-color: #5033ab;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+
+}
+
+.login_text_color{
+  -fx-fill: linear-gradient(to right, #333C8A, #CF3E8B);
+}
+
+
+.textual_field_color{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.login_button{
+    -fx-background-color: transparent;
+    -fx-background-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+

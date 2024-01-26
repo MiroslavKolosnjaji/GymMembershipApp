@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="side_ankerpane" onMouseClicked="#close" prefHeight="563.0" prefWidth="407.0" styleClass="side_ankerpane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymmembershipapp.LoginController">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="94.0" layoutY="194.0" />
+      <Text fx:id="login_text" layoutX="112.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login_text_color" text="LOGIN" textAlignment="CENTER" wrappingWidth="184.0">
+         <font>
+            <Font name="Calibri" size="48.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="37.0" layoutY="240.0" prefHeight="83.0" prefWidth="65.0">
+         <children>
+            <FontAwesomeIcon fill="WHITE" glyphName="LOCK" size="36" styleClass="image_with_gradient" />
+         </children>
+         <effect>
+            <Bloom threshold="0.29" />
+         </effect>
+      </HBox>
+      <PasswordField fx:id="passwordTxt" layoutX="99.0" layoutY="269.0" prefHeight="25.0" prefWidth="223.0" promptText="Password" styleClass="textual_field_color" stylesheets="@style.css">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </PasswordField>
+      <HBox alignment="CENTER" layoutX="37.0" layoutY="176.0" prefHeight="83.0" prefWidth="65.0">
+         <children>
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" size="36" styleClass="image_with_gradient" />
+         </children>
+         <effect>
+            <Bloom />
+         </effect>
+      </HBox>
+      <TextField fx:id="usernameTxt" layoutX="99.0" layoutY="205.0" prefHeight="25.0" prefWidth="223.0" promptText="User name" styleClass="textual_field_color" stylesheets="@style.css">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </TextField>
+      <Button layoutX="123.0" layoutY="323.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" styleClass="login_button" text="login" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Button>
+      <FontAwesomeIcon glyphName="CLOSE" layoutX="362.0" layoutY="44.0" onMouseClicked="#close" size="24" styleClass="login_text_color" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
