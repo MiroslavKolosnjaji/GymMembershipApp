@@ -22,7 +22,7 @@ public class Database {
 
     public void connectToDatabase() throws DatabaseException{
         String url = DbUtil.getInstance().getUrl();
-        String user = DbUtil.getInstance().getUrl();
+        String user = DbUtil.getInstance().getUser();
         String password = DbUtil.getInstance().getPassword();
 
         try{
