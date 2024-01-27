@@ -1,7 +1,10 @@
 package com.example.gymmembershipapp.controller;
 
+import com.example.gymmembershipapp.database.Database;
 import com.example.gymmembershipapp.domain.User;
+import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.service.UserService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -37,6 +40,11 @@ public class LoginController {
     private UserService userService;
 
     public LoginController(UserService userService) {
+        try {
+            Database.getInstance().connectToDatabase();
+        } catch (DatabaseException e) {
+            throw new RuntimeException(e);
+        }
         this.userService = userService;
     }
 
@@ -78,6 +86,7 @@ public class LoginController {
 
         if (!isFilled(password)) {
             showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out password field");
+            return;
         }
 
         try {
@@ -85,10 +94,13 @@ public class LoginController {
 
             if (user != null) {
                 openMainForm();
-                this.close();
+                System.out.println("User: " + user);
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                stage.close();
             }
+
         } catch (Exception e) {
-            e.getMessage();
+            showAlert(Alert.AlertType.WARNING, "WARNING", e.getMessage());
         }
 
 
