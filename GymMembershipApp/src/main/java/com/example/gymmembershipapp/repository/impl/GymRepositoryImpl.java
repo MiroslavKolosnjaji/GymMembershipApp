@@ -6,6 +6,7 @@ import com.example.gymmembershipapp.domain.Contact;
 import com.example.gymmembershipapp.domain.Gym;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
+import com.example.gymmembershipapp.repository.GymRepository;
 import com.example.gymmembershipapp.repository.Repository;
 
 import java.sql.CallableStatement;
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  * @author Miroslav Kološnjaji
  */
-public class GymRepositoryImpl implements Repository<Gym, Long> {
+public class GymRepositoryImpl implements GymRepository {
 
     private final Database db = Database.getInstance();
     @Override

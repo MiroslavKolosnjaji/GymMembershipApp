@@ -5,6 +5,7 @@ import com.example.gymmembershipapp.domain.Role;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
 import com.example.gymmembershipapp.repository.Repository;
+import com.example.gymmembershipapp.repository.RoleRepository;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * @author Miroslav Kološnjaji
  */
-public class RoleRepositoryImpl implements Repository<Role, Long> {
+public class RoleRepositoryImpl implements RoleRepository {
 
     private Database db = Database.getInstance();
 

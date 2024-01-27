@@ -1,6 +1,7 @@
 package com.example.gymmembershipapp.service.impl;
 
 import com.example.gymmembershipapp.domain.City;
+import com.example.gymmembershipapp.repository.CityRepository;
 import com.example.gymmembershipapp.repository.Repository;
 import com.example.gymmembershipapp.service.CityService;
 
@@ -11,9 +12,9 @@ import java.util.List;
  */
 public class CityServiceImpl implements CityService {
 
-    private final Repository<City, Long> cityRepository;
+    private final CityRepository cityRepository;
 
-    public CityServiceImpl(Repository<City, Long> cityRepository) {
+    public CityServiceImpl(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
 

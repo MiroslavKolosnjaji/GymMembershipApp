@@ -1,6 +1,7 @@
 package com.example.gymmembershipapp.service.impl;
 
 import com.example.gymmembershipapp.domain.Gym;
+import com.example.gymmembershipapp.repository.GymRepository;
 import com.example.gymmembershipapp.repository.Repository;
 import com.example.gymmembershipapp.service.GymService;
 
@@ -11,9 +12,9 @@ import java.util.List;
  */
 public class GymServiceImpl implements GymService {
 
-    private Repository<Gym, Long> gymRepository;
+    private GymRepository gymRepository;
 
-    public GymServiceImpl(Repository<Gym, Long> gymRepository) {
+    public GymServiceImpl(GymRepository gymRepository) {
         this.gymRepository = gymRepository;
     }
 

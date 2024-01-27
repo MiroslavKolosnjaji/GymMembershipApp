@@ -6,6 +6,7 @@ import com.example.gymmembershipapp.domain.Member;
 import com.example.gymmembershipapp.domain.Person;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
+import com.example.gymmembershipapp.repository.MemberRepository;
 import com.example.gymmembershipapp.repository.Repository;
 
 import java.sql.CallableStatement;
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  * @author Miroslav Kološnjaji
  */
-public class MemberRepositoryImpl implements Repository<Member, Long> {
+public class MemberRepositoryImpl implements MemberRepository {
 
     private final Database db = Database.getInstance();
 

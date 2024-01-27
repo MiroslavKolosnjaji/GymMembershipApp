@@ -4,6 +4,7 @@ import com.example.gymmembershipapp.database.Database;
 import com.example.gymmembershipapp.domain.City;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
+import com.example.gymmembershipapp.repository.CityRepository;
 import com.example.gymmembershipapp.repository.Repository;
 
 import java.sql.CallableStatement;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * @author Miroslav Kološnjaji
  */
-public class CityRepositoryImpl implements Repository<City, Long> {
+public class CityRepositoryImpl implements CityRepository {
 
     private Database db = Database.getInstance();
 

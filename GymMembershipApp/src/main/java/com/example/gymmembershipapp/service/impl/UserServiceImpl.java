@@ -2,6 +2,7 @@ package com.example.gymmembershipapp.service.impl;
 
 import com.example.gymmembershipapp.domain.User;
 import com.example.gymmembershipapp.repository.Repository;
+import com.example.gymmembershipapp.repository.UserRepository;
 import com.example.gymmembershipapp.service.UserService;
 
 import java.util.List;
@@ -11,9 +12,9 @@ import java.util.List;
  */
 public class UserServiceImpl implements UserService {
 
-    private final Repository<User, Long> userRepository;
+    private final UserRepository userRepository;
 
-    public UserServiceImpl(Repository<User, Long> userRepository) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -35,5 +36,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAll() throws Exception {
         return userRepository.getAll();
+    }
+
+    @Override
+    public void login(User user) throws Exception {
+
     }
 }

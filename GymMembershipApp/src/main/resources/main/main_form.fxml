@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1222.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.gymmembershipapp.controller.MainController">
+   <children>
+      <ListView fx:id="list_view" layoutX="386.0" layoutY="66.0" prefHeight="712.0" prefWidth="815.0" styleClass="list_view" stylesheets="@style.css" />
+      <Pane fx:id="search_oane" layoutX="27.0" layoutY="38.0" prefHeight="65.0" prefWidth="335.0" styleClass="search_pane" stylesheets="@style.css">
+         <children>
+            <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="291.0" layoutY="41.0" size="24" wrappingWidth="22.0" />
+         </children>
+      </Pane>
+      <VBox alignment="TOP_CENTER" layoutX="118.0" layoutY="210.0" prefHeight="125.0" prefWidth="153.0" spacing="30.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="new member">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="update member">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="delete member">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+         </children>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+         <padding>
+            <Insets top="4.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

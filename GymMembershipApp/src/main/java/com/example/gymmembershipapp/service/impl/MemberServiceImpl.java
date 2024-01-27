@@ -1,6 +1,7 @@
 package com.example.gymmembershipapp.service.impl;
 
 import com.example.gymmembershipapp.domain.Member;
+import com.example.gymmembershipapp.repository.MemberRepository;
 import com.example.gymmembershipapp.repository.Repository;
 import com.example.gymmembershipapp.service.MemberService;
 
@@ -11,9 +12,9 @@ import java.util.List;
  */
 public class MemberServiceImpl implements MemberService {
 
-    private final Repository<Member, Long> memberRepository;
+    private final MemberRepository memberRepository;
 
-    public MemberServiceImpl(Repository<Member, Long> memberRepository) {
+    public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 

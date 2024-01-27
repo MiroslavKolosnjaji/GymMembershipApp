@@ -1,0 +1,23 @@
+.root{
+    -fx-background-color: #0f0826;
+    -fx-border-color: #220&bb;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+}
+
+.search_pane{
+    -fx-background-color: #5033ab;   /*#1c085c*/
+    -fx-border-color: #5033ab;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+
+}
+
+.list_view{
+    fx-background-color:#0f0826;
+    fx-background-radius: 10px;
+}

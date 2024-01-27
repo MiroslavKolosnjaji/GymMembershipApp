@@ -7,4 +7,6 @@ module com.example.gymmembershipapp {
 
     opens com.example.gymmembershipapp to javafx.fxml;
     exports com.example.gymmembershipapp;
+    exports com.example.gymmembershipapp.controller;
+    opens com.example.gymmembershipapp.controller to javafx.fxml;
 }

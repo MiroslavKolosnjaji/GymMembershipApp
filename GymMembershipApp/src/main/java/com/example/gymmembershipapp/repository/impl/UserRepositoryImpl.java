@@ -8,6 +8,7 @@ import com.example.gymmembershipapp.domain.User;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
 import com.example.gymmembershipapp.repository.Repository;
+import com.example.gymmembershipapp.repository.UserRepository;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -18,7 +19,7 @@ import java.util.List;
 /**
  * @author Miroslav Kološnjaji
  */
-public class UserRepositoryImpl implements Repository<User, Long> {
+public class UserRepositoryImpl implements UserRepository {
 
     private final Database db = Database.getInstance();
     @Override

@@ -2,6 +2,7 @@ package com.example.gymmembershipapp.service.impl;
 
 import com.example.gymmembershipapp.domain.Role;
 import com.example.gymmembershipapp.repository.Repository;
+import com.example.gymmembershipapp.repository.RoleRepository;
 import com.example.gymmembershipapp.service.RoleService;
 
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.List;
  * @author Miroslav Kološnjaji
  */
 public class RoleServiceImpl implements RoleService {
-    private final Repository<Role, Long> roleRepository;
+    private final RoleRepository roleRepository;
 
-    public RoleServiceImpl(Repository<Role, Long> roleRepository) {
+    public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
 
