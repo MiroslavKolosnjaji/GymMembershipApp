@@ -27,7 +27,7 @@
             <Bloom threshold="0.29" />
          </effect>
       </HBox>
-      <PasswordField fx:id="passwordTxt" layoutX="99.0" layoutY="269.0" prefHeight="25.0" prefWidth="223.0" promptText="Password" styleClass="textual_field_color" stylesheets="@style.css">
+      <PasswordField fx:id="passwordTxt" layoutX="99.0" layoutY="269.0" prefHeight="25.0" prefWidth="223.0" promptText="Password" styleClass="textual_field_color" stylesheets="@style.css" text="jankela2">
          <font>
             <Font name="Verdana Bold" size="13.0" />
          </font>
@@ -43,7 +43,7 @@
             <Bloom />
          </effect>
       </HBox>
-      <TextField fx:id="usernameTxt" layoutX="99.0" layoutY="205.0" prefHeight="25.0" prefWidth="223.0" promptText="User name" styleClass="textual_field_color" stylesheets="@style.css">
+      <TextField fx:id="usernameTxt" layoutX="99.0" layoutY="205.0" prefHeight="25.0" prefWidth="223.0" promptText="User name" styleClass="textual_field_color" stylesheets="@style.css" text="janko@hotmail.com">
          <font>
             <Font name="Verdana Bold" size="13.0" />
          </font>
