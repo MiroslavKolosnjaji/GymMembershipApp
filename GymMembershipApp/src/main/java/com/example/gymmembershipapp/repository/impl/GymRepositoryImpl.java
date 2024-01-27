@@ -26,8 +26,8 @@ public class GymRepositoryImpl implements GymRepository {
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setString(1, gym.getName());
             callableStatement.setString(2, gym.getAddress());
-            callableStatement.setString(3, gym.getContact().getPhone());
-            callableStatement.setString(4, gym.getContact().getEmail());
+            callableStatement.setString(3, gym.getPhone());
+            callableStatement.setString(4, gym.getEmail());
             callableStatement.setLong(5, gym.getCity().getCityId());
             callableStatement.executeUpdate();
 
@@ -52,8 +52,8 @@ public class GymRepositoryImpl implements GymRepository {
             callableStatement.setLong(1, gym.getGymId());
             callableStatement.setString(2, gym.getName());
             callableStatement.setString(3, gym.getAddress());
-            callableStatement.setString(4, gym.getContact().getPhone());
-            callableStatement.setString(5, gym.getContact().getEmail());
+            callableStatement.setString(4, gym.getPhone());
+            callableStatement.setString(5, gym.getEmail());
             callableStatement.setLong(6, gym.getCity().getCityId());
             callableStatement.executeUpdate();
 
@@ -109,7 +109,7 @@ public class GymRepositoryImpl implements GymRepository {
                 String email = resultSet.getString("email");
                 Long cityId = resultSet.getLong("city_id");
 
-                gymList.add(new Gym(id, name, new Contact(phone, email), address,  new City(cityId)));
+                gymList.add(new Gym(id, name, address, email, phone, new City(cityId), null));
             }
 
             resultSet.close();

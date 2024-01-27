@@ -3,7 +3,10 @@ package com.example.gymmembershipapp.controller;
 import com.example.gymmembershipapp.domain.User;
 import com.example.gymmembershipapp.service.UserService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -13,6 +16,9 @@ import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.Bloom;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LoginController {
 
@@ -40,59 +46,78 @@ public class LoginController {
     }
 
     @FXML
-    protected void loginButtonMouseEntered(){
+    protected void loginButtonMouseEntered() {
         onMouseEntered(loginButtonBox);
     }
 
     @FXML
-    protected void loginButtonMouseExited(){
+    protected void loginButtonMouseExited() {
         onMouseExited(loginButtonBox);
     }
 
     @FXML
-    protected void createAccountTextMouseEntered(){
+    protected void createAccountTextMouseEntered() {
         onMouseEntered(createAccountVBox);
     }
 
     @FXML
-    protected void createAccountTextMouseExited(){
+    protected void createAccountTextMouseExited() {
         onMouseExited(createAccountVBox);
     }
 
     @FXML
-    protected void loginButtonClicked(){
+    protected void loginButtonClicked() {
 
         String email = usernameTxt.getText();
         String password = passwordTxt.getText();
 
-        if(!isFilled(email)){
+        if (!isFilled(email)) {
             showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out email field");
             return;
         }
 
-        if(!isFilled(password)){
+        if (!isFilled(password)) {
             showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out password field");
         }
 
-        User user = userService.login(new User(email,password));
+        try {
+            User user = userService.login(new User(email, password));
 
-        if(user != null){
-
+            if (user != null) {
+                openMainForm();
+                this.close();
+            }
+        } catch (Exception e) {
+            e.getMessage();
         }
 
-        this.close();
 
     }
 
+    private void openMainForm() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/main/main_form.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
 
-    private void showAlert(Alert.AlertType alertType, String title, String contentText){
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Gym Membership");
+            stage.show();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+
+    private void showAlert(Alert.AlertType alertType, String title, String contentText) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(contentText);
         alert.showAndWait();
     }
-    private void onMouseEntered(Node node){
+
+    private void onMouseEntered(Node node) {
         Glow glow = new Glow();
         glow.setLevel(0.2);
 
@@ -106,10 +131,12 @@ public class LoginController {
 
         node.setEffect(blend);
     }
-    private void onMouseExited(Node node){
+
+    private void onMouseExited(Node node) {
         node.setEffect(null);
     }
-    private boolean isFilled(String string){
+
+    private boolean isFilled(String string) {
         return !string.isEmpty() || !string.isBlank();
     }
 }

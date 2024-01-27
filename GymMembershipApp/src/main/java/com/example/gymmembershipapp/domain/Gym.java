@@ -10,8 +10,9 @@ public class Gym {
 
     private Long gymId;
     private String name;
-    private Contact contact;
     private String address;
+    private String email;
+    private String phone;
     private City city;
     private List<Member> memberList;
 
@@ -22,21 +23,14 @@ public class Gym {
         this.gymId = gymId;
     }
 
-    public Gym(Long gymId, String name, Contact contact, String address, City city, List<Member> memberList) {
+    public Gym(Long gymId, String name, String address, String email, String phone, City city, List<Member> memberList) {
         this.gymId = gymId;
         this.name = name;
-        this.contact = contact;
         this.address = address;
+        this.email = email;
+        this.phone = phone;
         this.city = city;
         this.memberList = memberList;
-    }
-
-    public Gym(Long gymId, String name, Contact contact, String address, City city) {
-        this.gymId = gymId;
-        this.name = name;
-        this.contact = contact;
-        this.address = address;
-        this.city = city;
     }
 
     public Long getGymId() {
@@ -55,20 +49,28 @@ public class Gym {
         this.name = name;
     }
 
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public City getCity() {
@@ -92,11 +94,11 @@ public class Gym {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Gym gym = (Gym) o;
-        return Objects.equals(gymId, gym.gymId) && Objects.equals(name, gym.name) && Objects.equals(contact, gym.contact) && Objects.equals(address, gym.address) && Objects.equals(city, gym.city) && Objects.equals(memberList, gym.memberList);
+        return Objects.equals(gymId, gym.gymId) && Objects.equals(name, gym.name) && Objects.equals(address, gym.address) && Objects.equals(email, gym.email) && Objects.equals(phone, gym.phone) && Objects.equals(city, gym.city) && Objects.equals(memberList, gym.memberList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gymId, name, contact, address, city, memberList);
+        return Objects.hash(gymId, name, address, email, phone, city, memberList);
     }
 }
