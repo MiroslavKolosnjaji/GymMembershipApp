@@ -2,12 +2,10 @@ package com.example.gymmembershipapp.repository.impl;
 
 import com.example.gymmembershipapp.database.Database;
 import com.example.gymmembershipapp.domain.City;
-import com.example.gymmembershipapp.domain.Contact;
 import com.example.gymmembershipapp.domain.Gym;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
 import com.example.gymmembershipapp.repository.GymRepository;
-import com.example.gymmembershipapp.repository.Repository;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;

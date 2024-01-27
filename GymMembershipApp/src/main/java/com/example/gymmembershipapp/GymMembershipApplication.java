@@ -3,6 +3,7 @@ package com.example.gymmembershipapp;
 import com.example.gymmembershipapp.controller.LoginController;
 import com.example.gymmembershipapp.domain.User;
 import com.example.gymmembershipapp.repository.Repository;
+import com.example.gymmembershipapp.repository.UserRepository;
 import com.example.gymmembershipapp.repository.impl.UserRepositoryImpl;
 import com.example.gymmembershipapp.service.UserService;
 import com.example.gymmembershipapp.service.impl.UserServiceImpl;
@@ -18,7 +19,7 @@ import java.io.IOException;
 public class GymMembershipApplication extends Application {
 
     private UserService userService;
-    private Repository<User, Long> userRepository;
+    private UserRepository userRepository;
 
 
 

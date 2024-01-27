@@ -8,8 +8,12 @@ import java.util.Objects;
 public class Member {
 
     private Long memberId;
-    private Person member;
 
+    private String firstName;
+    private String lastName;
+
+    private String email;
+    private String phone;
     private Membership membership;
 
     public Member() {
@@ -19,9 +23,12 @@ public class Member {
         this.memberId = memberId;
     }
 
-    public Member(Long memberId, Person member, Membership membership) {
+    public Member(Long memberId, String firstName, String lastName, String email, String phone, Membership membership) {
         this.memberId = memberId;
-        this.member = member;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
         this.membership = membership;
     }
 
@@ -33,12 +40,36 @@ public class Member {
         this.memberId = memberId;
     }
 
-    public Person getMember() {
-        return member;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setMember(Person member) {
-        this.member = member;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Membership getMembership() {
@@ -53,12 +84,12 @@ public class Member {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Member member1 = (Member) o;
-        return Objects.equals(memberId, member1.memberId) && Objects.equals(member, member1.member) && Objects.equals(membership, member1.membership);
+        Member member = (Member) o;
+        return Objects.equals(memberId, member.memberId) && Objects.equals(firstName, member.firstName) && Objects.equals(lastName, member.lastName) && Objects.equals(email, member.email) && Objects.equals(phone, member.phone) && Objects.equals(membership, member.membership);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(memberId, member, membership);
+        return Objects.hash(memberId, firstName, lastName, email, phone, membership);
     }
 }

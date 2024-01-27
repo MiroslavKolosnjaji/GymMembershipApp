@@ -39,7 +39,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void login(User user) throws Exception {
+    public User login(User user) throws Exception {
 
+        User loggedUser = userRepository.login(user).get(1);
+
+        if(loggedUser == null)
+            throw new Exception("User doesn't exist!");
+
+        return user;
     }
 }

@@ -1,8 +1,7 @@
 package com.example.gymmembershipapp.controller;
 
-import com.example.gymmembershipapp.repository.impl.UserRepositoryImpl;
+import com.example.gymmembershipapp.domain.User;
 import com.example.gymmembershipapp.service.UserService;
-import com.example.gymmembershipapp.service.impl.UserServiceImpl;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -24,13 +23,15 @@ public class LoginController {
     private VBox createAccountVBox;
     @FXML
     private VBox loginButtonBox;
-    private TextField userMail;
-    private PasswordField userPassword;
+    @FXML
+    private TextField usernameTxt;
+    @FXML
+    private PasswordField passwordTxt;
 
     private UserService userService;
 
     public LoginController(UserService userService) {
-        this.userService = new UserServiceImpl(new UserRepositoryImpl());
+        this.userService = userService;
     }
 
     @FXML
@@ -61,14 +62,25 @@ public class LoginController {
     @FXML
     protected void loginButtonClicked(){
 
-        String email = userMail.getText();
-        String password = userPassword.getText();
+        String email = usernameTxt.getText();
+        String password = passwordTxt.getText();
 
-        if(!isFilled(email))
+        if(!isFilled(email)){
             showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out email field");
+            return;
+        }
 
-        if(!isFilled(password))
+        if(!isFilled(password)){
             showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out password field");
+        }
+
+        User user = userService.login(new User(email,password));
+
+        if(user != null){
+
+        }
+
+        this.close();
 
     }
 
@@ -80,8 +92,6 @@ public class LoginController {
         alert.setContentText(contentText);
         alert.showAndWait();
     }
-
-
     private void onMouseEntered(Node node){
         Glow glow = new Glow();
         glow.setLevel(0.2);
@@ -96,12 +106,9 @@ public class LoginController {
 
         node.setEffect(blend);
     }
-
-
     private void onMouseExited(Node node){
         node.setEffect(null);
     }
-
     private boolean isFilled(String string){
         return !string.isEmpty() || !string.isBlank();
     }

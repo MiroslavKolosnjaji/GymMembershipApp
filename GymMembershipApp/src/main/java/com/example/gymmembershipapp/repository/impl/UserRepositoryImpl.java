@@ -2,17 +2,12 @@ package com.example.gymmembershipapp.repository.impl;
 
 import com.example.gymmembershipapp.database.Database;
 import com.example.gymmembershipapp.domain.City;
-import com.example.gymmembershipapp.domain.Contact;
-import com.example.gymmembershipapp.domain.Person;
 import com.example.gymmembershipapp.domain.User;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
-import com.example.gymmembershipapp.repository.Repository;
 import com.example.gymmembershipapp.repository.UserRepository;
 
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +22,10 @@ public class UserRepositoryImpl implements UserRepository {
         try{
             String call = "CALL insert_user(?,?,?,?,?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
-            callableStatement.setString(1, user.getUser().getFirstName());
-            callableStatement.setString(2, user.getUser().getLastName());
-            callableStatement.setString(3, user.getUser().getContact().getPhone());
-            callableStatement.setString(4, user.getUser().getContact().getEmail());
+            callableStatement.setString(1, user.getFirstName());
+            callableStatement.setString(2, user.getLastName());
+            callableStatement.setString(3, user.getPhone());
+            callableStatement.setString(4, user.getEmail());
             callableStatement.setLong(5, user.getCity().getCityId());
             callableStatement.executeUpdate();
 
@@ -53,10 +48,10 @@ public class UserRepositoryImpl implements UserRepository {
             String call = "CALL update_user(?,?,?,?,?,?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, user.getUserId());
-            callableStatement.setString(2, user.getUser().getFirstName());
-            callableStatement.setString(3, user.getUser().getLastName());
-            callableStatement.setString(4, user.getUser().getContact().getPhone());
-            callableStatement.setString(5, user.getUser().getContact().getEmail());
+            callableStatement.setString(2, user.getFirstName());
+            callableStatement.setString(3, user.getLastName());
+            callableStatement.setString(4, user.getPhone());
+            callableStatement.setString(5, user.getEmail());
             callableStatement.setLong(6, user.getCity().getCityId());
             callableStatement.executeUpdate();
 
@@ -112,7 +107,7 @@ public class UserRepositoryImpl implements UserRepository {
                 String password = resultSet.getString("password");
                 Long cityId = resultSet.getLong("city_id");
 
-                userList.add(new User(id,new Person(firstName,lastName, new Contact(phone,email)), password, new City(cityId)));
+                userList.add(new User(id,firstName,lastName,null, phone,email, password, new City(cityId)));
             }
 
             resultSet.close();
@@ -134,5 +129,44 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User findById(Long aLong) throws RepositoryException {
         return null;
+    }
+
+    @Override
+    public List<User> login(User user) throws RepositoryException {
+        try{
+            List<User> users = new ArrayList<>();
+
+            String query = "SELECT id, first_name, last_name, phone, email, password, city_id FROM `USER` WHERE email = ? AND password = ?";
+            PreparedStatement preparedStatement = db.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, user.getEmail());
+            preparedStatement.setString(2, user.getPassword());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                Long id = resultSet.getLong("id");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String email = resultSet.getString("email");
+                String phone = resultSet.getString("phone");
+                String password = resultSet.getString("email");
+                Long cityId = resultSet.getLong("city_id");
+
+                users.add(new User(id, firstName, lastName, null, phone, email, password, new City(cityId)));
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+            db.confirmTransaction();
+            return users;
+
+        }catch (SQLException | DatabaseException exception){
+            try {
+                db.cancelTransaction();
+            } catch (DatabaseException e) {
+                e.printStackTrace();
+            }
+            exception.printStackTrace();
+            throw new RepositoryException("An error occured while searching for user in database");
+        }
     }
 }

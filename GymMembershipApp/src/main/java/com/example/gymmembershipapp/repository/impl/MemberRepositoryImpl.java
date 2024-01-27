@@ -1,13 +1,10 @@
 package com.example.gymmembershipapp.repository.impl;
 
 import com.example.gymmembershipapp.database.Database;
-import com.example.gymmembershipapp.domain.Contact;
 import com.example.gymmembershipapp.domain.Member;
-import com.example.gymmembershipapp.domain.Person;
 import com.example.gymmembershipapp.exception.DatabaseException;
 import com.example.gymmembershipapp.exception.RepositoryException;
 import com.example.gymmembershipapp.repository.MemberRepository;
-import com.example.gymmembershipapp.repository.Repository;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -27,10 +24,10 @@ public class MemberRepositoryImpl implements MemberRepository {
         try {
             String call = "CALL insert_member(?,?,?,?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
-            callableStatement.setString(1, member.getMember().getFirstName());
-            callableStatement.setString(2, member.getMember().getLastName());
-            callableStatement.setString(3, member.getMember().getContact().getPhone());
-            callableStatement.setString(4, member.getMember().getContact().getEmail());
+            callableStatement.setString(1, member.getFirstName());
+            callableStatement.setString(2, member.getLastName());
+            callableStatement.setString(3, member.getPhone());
+            callableStatement.setString(4, member.getEmail());
             callableStatement.execute();
 
             callableStatement.close();
@@ -53,10 +50,10 @@ public class MemberRepositoryImpl implements MemberRepository {
             String call = "CALL update_member(?,?,?,?,?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, member.getMemberId());
-            callableStatement.setString(1, member.getMember().getFirstName());
-            callableStatement.setString(2, member.getMember().getLastName());
-            callableStatement.setString(3, member.getMember().getContact().getPhone());
-            callableStatement.setString(4, member.getMember().getContact().getEmail());
+            callableStatement.setString(1, member.getFirstName());
+            callableStatement.setString(2, member.getLastName());
+            callableStatement.setString(3, member.getPhone());
+            callableStatement.setString(4, member.getEmail());
             callableStatement.execute();
 
             callableStatement.close();
@@ -110,7 +107,7 @@ public class MemberRepositoryImpl implements MemberRepository {
                 String phone = resultSet.getString("phone");
                 String email = resultSet.getString("email");
 
-                memberList.add(new Member(id, new Person(firstName, lastName, new Contact(phone, email)), null));
+                memberList.add(new Member(id, firstName, lastName, email, phone, null));
             }
 
             resultSet.close();

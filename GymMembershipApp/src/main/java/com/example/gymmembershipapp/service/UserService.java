@@ -7,5 +7,5 @@ import com.example.gymmembershipapp.domain.User;
  */
 public interface UserService extends CRUDService<User, Long> {
 
-    void login(User user) throws Exception;
+    User login(User user) throws Exception;
 }
