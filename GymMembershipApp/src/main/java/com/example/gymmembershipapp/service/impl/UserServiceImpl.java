@@ -1,7 +1,6 @@
 package com.example.gymmembershipapp.service.impl;
 
 import com.example.gymmembershipapp.domain.User;
-import com.example.gymmembershipapp.repository.Repository;
 import com.example.gymmembershipapp.repository.UserRepository;
 import com.example.gymmembershipapp.service.UserService;
 
@@ -41,11 +40,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(User user) throws Exception {
 
-        User loggedUser = userRepository.login(user).get(1);
+        List<User> users = userRepository.login(user);
 
-        if(loggedUser == null)
+        if (users.isEmpty())
             throw new Exception("User doesn't exist!");
 
-        return user;
+        return users.get(0);
     }
 }

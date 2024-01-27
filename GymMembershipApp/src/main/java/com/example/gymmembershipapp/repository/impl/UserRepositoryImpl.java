@@ -136,14 +136,14 @@ public class UserRepositoryImpl implements UserRepository {
         try{
             List<User> users = new ArrayList<>();
 
-            String query = "SELECT id, first_name, last_name, phone, email, password, city_id FROM `USER` WHERE email = ? AND password = ?";
+            String query = "SELECT user_id, first_name, last_name, phone, email, password, city_id FROM `USER` WHERE email = ? AND password = ?";
             PreparedStatement preparedStatement = db.getConnection().prepareStatement(query);
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getPassword());
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()){
-                Long id = resultSet.getLong("id");
+                Long id = resultSet.getLong("user_id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 String email = resultSet.getString("email");
