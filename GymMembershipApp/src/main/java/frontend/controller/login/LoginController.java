@@ -1,28 +1,33 @@
 package frontend.controller.login;
 
-import backend.GymMembershipApplication;
-import frontend.controller.ControllerFXUtil;
+import frontend.controller.ControllerEffectsUtil;
 import backend.database.Database;
 import backend.domain.User;
 import backend.exception.DatabaseException;
 import backend.service.UserService;
+import frontend.controller.ControllerUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
-
+    @FXML
+    private AnchorPane root;
     @FXML
     private Button loginButton;
     @FXML
@@ -52,22 +57,22 @@ public class LoginController {
 
     @FXML
     protected void loginButtonMouseEntered() {
-        ControllerFXUtil.glowEffect(loginButton);
+        ControllerEffectsUtil.glowEffect(loginButton);
     }
 
     @FXML
     protected void loginButtonMouseExited() {
-        ControllerFXUtil.removeEffect(loginButton);
+        ControllerEffectsUtil.removeEffect(loginButton);
     }
 
     @FXML
     protected void createAccountTextMouseEntered() {
-       ControllerFXUtil.glowEffect(createAccountVBox);
+       ControllerEffectsUtil.glowEffect(createAccountVBox);
     }
 
     @FXML
     protected void createAccountTextMouseExited() {
-        ControllerFXUtil.removeEffect(createAccountVBox);
+        ControllerEffectsUtil.removeEffect(createAccountVBox);
     }
 
     @FXML
@@ -77,12 +82,12 @@ public class LoginController {
         String password = passwordTxt.getText();
 
         if (!isFilled(email)) {
-            showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out email field");
+            ControllerUtil.showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out email field");
             return;
         }
 
         if (!isFilled(password)) {
-            showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out password field");
+            ControllerUtil.showAlert(Alert.AlertType.INFORMATION, "Information", "Please fill out password field");
             return;
         }
 
@@ -97,7 +102,7 @@ public class LoginController {
             }
 
         } catch (Exception e) {
-            showAlert(Alert.AlertType.WARNING, "WARNING", e.getMessage());
+            ControllerUtil.showAlert(Alert.AlertType.WARNING, "WARNING", e.getMessage());
         }
 
 
@@ -130,5 +135,11 @@ public class LoginController {
 
     private boolean isFilled(String string) {
         return !string.isEmpty() || !string.isBlank();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        root.getStyleClass().add("neon-border");
+        root.getStyleClass().add("rotateAnimation");
     }
 }

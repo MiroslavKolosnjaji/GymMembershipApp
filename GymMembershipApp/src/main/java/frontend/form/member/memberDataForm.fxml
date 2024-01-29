@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" styleClass="glass-effect" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="166.0" layoutY="20.0" prefHeight="319.0" prefWidth="271.0" spacing="16.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="253.0">
+               <children>
+                  <Label fx:id="lblFirstName" stylesheets="@memberStyle.css" text="First name" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtFirstName" styleClass="textual-field-color" stylesheets="@../css/formStyle.css">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="66.0" prefWidth="253.0">
+               <children>
+                  <Label fx:id="lblLastName" text="Last name" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtLastName" styleClass="textual-field-color" stylesheets="@../css/formStyle.css">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="79.0" prefHeight="66.0" prefWidth="253.0">
+               <children>
+                  <Label fx:id="lblPhone" text="Phone" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPhone" styleClass="textual-field-color" stylesheets="@../css/formStyle.css">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="148.0" prefHeight="66.0" prefWidth="253.0">
+               <children>
+                  <Label fx:id="lblEmail" text="Email" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmail" styleClass="textual-field-color" stylesheets="@../css/formStyle.css">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="265.0" prefHeight="66.0" prefWidth="253.0">
+               <children>
+                  <Label fx:id="lblEmail1" text="Gym" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboGym" prefHeight="25.0" prefWidth="275.0" styleClass="button-color" stylesheets="@memberStyle.css" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <FontAwesomeIcon fx:id="iconClose" glyphName="CLOSE" layoutX="546.0" layoutY="41.0" size="24" styleClass="text-color" />
+      <Pane fx:id="btnPane" layoutX="122.0" layoutY="437.0" prefHeight="112.0" prefWidth="358.0">
+         <children>
+            <Button fx:id="btnConfirm" layoutX="92.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#confirmInputs" onMouseEntered="#confirmGlowEffect" onMouseExited="#confirmRemoveGlowEffect" prefHeight="56.0" prefWidth="175.0" styleClass="add-button" text="CONFIRM" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+               <stylesheets>
+                  <URL value="@../css/formStyle.css" />
+                  <URL value="@memberStyle.css" />
+               </stylesheets>
+               <effect>
+                  <Reflection fraction="0.63" topOffset="1.0" topOpacity="0.31" />
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/formStyle.css" />
+      <URL value="@memberStyle.css" />
+   </stylesheets>
+</AnchorPane>
