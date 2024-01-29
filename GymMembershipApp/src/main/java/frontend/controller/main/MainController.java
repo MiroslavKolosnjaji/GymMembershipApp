@@ -80,7 +80,7 @@ public class MainController implements Initializable {
         Node[] nodes = new Node[100];
         for (int i = 0; i < nodes.length; i++) {
             try {
-                nodes[i] = FXMLLoader.load(getClass().getResource("/frontend/main/item/item.fxml"));
+                nodes[i] = FXMLLoader.load(getClass().getResource("/mainform/item/item.fxml"));
                 pnItems.getChildren().add(nodes[i]);
             } catch (IOException e) {
                 throw new RuntimeException(e);

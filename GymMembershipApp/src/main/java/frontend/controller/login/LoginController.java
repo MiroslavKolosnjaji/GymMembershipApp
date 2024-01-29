@@ -1,5 +1,6 @@
 package frontend.controller.login;
 
+import backend.GymMembershipApplication;
 import frontend.controller.ControllerFXUtil;
 import backend.database.Database;
 import backend.domain.User;
@@ -104,7 +105,7 @@ public class LoginController {
 
     private void openMainForm() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/frontend/main/main_form.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/mainform/main_form.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.setFill(Color.TRANSPARENT);
 

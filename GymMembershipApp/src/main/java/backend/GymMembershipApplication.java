@@ -28,8 +28,9 @@ public class GymMembershipApplication extends Application {
         userRepository = new UserRepositoryImpl();
         userService = new UserServiceImpl(userRepository);
 
-
-        FXMLLoader fxmlLoader = new FXMLLoader(GymMembershipApplication.class.getResource("/frontend/login/login_form.fxml"));
+        var location = GymMembershipApplication.class.getResource("/login/login_form.fxml");
+        System.out.println(location);
+        FXMLLoader fxmlLoader = new FXMLLoader(location);
         fxmlLoader.setController(new LoginController(userService));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
