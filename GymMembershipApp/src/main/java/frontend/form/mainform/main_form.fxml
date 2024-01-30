@@ -22,7 +22,7 @@
             <Pane fx:id="search_pane" layoutX="14.0" layoutY="94.0" prefHeight="47.0" prefWidth="335.0" styleClass="search-pane" stylesheets="@mainComponentStyle.css">
                <children>
                   <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="299.0" layoutY="32.0" size="24" wrappingWidth="22.0" />
-                  <TextField fx:id="txtSearchField" layoutX="23.0" layoutY="11.0" prefHeight="27.0" prefWidth="274.0" styleClass="textual-field-color" stylesheets="@style.css" />
+                  <TextField fx:id="txtSearchField" layoutX="23.0" layoutY="11.0" prefHeight="27.0" prefWidth="274.0" styleClass="textual-field-color" stylesheets="@../css/formStyle.css" />
                </children>
             </Pane>
             <ScrollPane fx:id="tableScrollPane" layoutX="367.0" layoutY="148.0" prefHeight="636.0" prefWidth="841.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css">
@@ -69,7 +69,7 @@
                   <FontAwesomeIcon fx:id="close" glyphName="CLOSE" layoutX="80.0" layoutY="34.0" onMouseClicked="#closeForm" size="24" styleClass="text-color" />
                </children>
             </HBox>
-            <VBox alignment="CENTER" layoutX="14.0" layoutY="210.0" prefHeight="177.0" prefWidth="233.0" spacing="19.0" stylesheets="@../login/style.css">
+            <VBox alignment="CENTER" layoutX="14.0" layoutY="210.0" prefHeight="177.0" prefWidth="233.0" spacing="19.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="173.0" spacing="18.0">
                      <children>
@@ -125,7 +125,7 @@
             </VBox>
             <HBox alignment="CENTER" layoutX="422.0" layoutY="14.0" prefHeight="66.0" prefWidth="140.0" spacing="2.0">
                <children>
-                  <Label fx:id="lblTotal" styleClass="text_color" stylesheets="@../login/style.css" text="13846,44" textFill="WHITE">
+                  <Label fx:id="lblTotal" styleClass="text_color" text="13846,44" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
@@ -140,12 +140,12 @@
                   <Bloom />
                </effect>
             </HBox>
-            <FontAwesomeIcon fx:id="logout" glyphName="SIGN_OUT" layoutX="14.0" layoutY="740.0" size="36" styleClass="textColor" />
+            <FontAwesomeIcon fx:id="logout" glyphName="SIGN_OUT" layoutX="14.0" layoutY="740.0" size="36" styleClass="text-color" />
             <FontAwesomeIcon glyphName="MONEY" layoutX="638.0" layoutY="62.0" size="36" styleClass="text-color" />
             <Text layoutX="638.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="LAST MONTH TOTAL" />
             <HBox alignment="CENTER" layoutX="679.0" layoutY="16.0" prefHeight="66.0" prefWidth="140.0" spacing="2.0">
                <children>
-                  <Label fx:id="lblTotalLast" styleClass="text_color" stylesheets="@../login/style.css" text="67843,97" textFill="WHITE">
+                  <Label fx:id="lblTotalLast" styleClass="text_color" text="67843,97" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>

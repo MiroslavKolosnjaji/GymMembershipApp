@@ -133,9 +133,7 @@ public class MainController implements Initializable {
 
     @FXML
     void closeForm(MouseEvent event) {
-
-
-
+        ControllerUtil.closeApplication("Confirm dialog", "Are you sure?", "Application will be closed. Do you want to proceed?");
     }
 
     @FXML

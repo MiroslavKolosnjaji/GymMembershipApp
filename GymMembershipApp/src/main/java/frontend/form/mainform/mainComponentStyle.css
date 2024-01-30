@@ -48,11 +48,16 @@
 
 }
 
-.chart-background{
+.chart{
     -fx-background-color: transparent;
+    -fx-font-size: 20;
+    -fx-text-fill: white;
 }
 
-.chart-axis,
-chart-axis-label{
-    -fx-text-fill: white;
+.axis-label{
+    -fx-text-fill: #ffffff;
+}
+
+.chart-plot-background{
+    -fx-background-c: transparent;
 }

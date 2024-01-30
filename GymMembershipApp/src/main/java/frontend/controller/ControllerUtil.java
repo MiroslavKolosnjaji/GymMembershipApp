@@ -3,6 +3,7 @@ package frontend.controller;
 import backend.database.Database;
 import backend.exception.DatabaseException;
 import frontend.exception.UserInputException;
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
@@ -22,7 +23,7 @@ public class ControllerUtil {
         alert.showAndWait();
     }
 
-    public static void showConfirmationAlert(String title, String headerText, String contentText){
+    public static void closeApplication(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
         alert.setHeaderText("Are you sure?");
@@ -37,7 +38,7 @@ public class ControllerUtil {
             if (response == yes) {
                 try {
                     Database.getInstance().disconnectFromDatabase();
-                    System.exit(0);
+                    Platform.exit();
                 } catch (DatabaseException e) {
                     throw new RuntimeException(e);
                 }
