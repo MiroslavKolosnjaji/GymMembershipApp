@@ -28,7 +28,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             callableStatement.setString(2, member.getLastName());
             callableStatement.setString(3, member.getPhone());
             callableStatement.setString(4, member.getEmail());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
@@ -54,7 +54,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             callableStatement.setString(2, member.getLastName());
             callableStatement.setString(3, member.getPhone());
             callableStatement.setString(4, member.getEmail());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
@@ -76,7 +76,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             String call = "CALL delete_member(?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, member.getMemberId());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();

@@ -46,7 +46,7 @@
     -fx-padding: 10px;
 
     -fx-rotate: 0;
-
+    -fx-background-color: #0f0826;
     -fx-animation: rotateAnimation 3s linear infinite, glowAnimation 5s linear infinite;
 }
 

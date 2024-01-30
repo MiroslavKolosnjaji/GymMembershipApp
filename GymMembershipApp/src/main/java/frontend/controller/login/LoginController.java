@@ -6,6 +6,9 @@ import backend.domain.User;
 import backend.exception.DatabaseException;
 import backend.service.UserService;
 import frontend.controller.ControllerUtil;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,12 +22,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.Key;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController{
 
     @FXML
     private AnchorPane root;
@@ -124,22 +129,8 @@ public class LoginController implements Initializable {
         }
     }
 
-
-    private void showAlert(Alert.AlertType alertType, String title, String contentText) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contentText);
-        alert.showAndWait();
-    }
-
     private boolean isFilled(String string) {
         return !string.isEmpty() || !string.isBlank();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        root.getStyleClass().add("neon-border");
-        root.getStyleClass().add("rotateAnimation");
-    }
 }

@@ -64,12 +64,16 @@ public class MemberDataFormController {
         this.externalNode = node;
     }
 
+    @FXML
+    void closeForm(MouseEvent event) {
+        MemberDataFormControllerImpl.closeWindow(externalNode);
+    }
+
 
     @FXML
     void confirmInputs(MouseEvent event) {
         Map<String, TextField> map = Map.of("firstName", txtFirstName, "lastName", txtLastName, "phone", txtPhone, "email",  txtEmail);
-        MemberDataFormControllerImpl.insert(map, externalNode);
-//        ControllerEffectsUtil.removeEffect(externalNode);
+        MemberDataFormControllerImpl.insert(memberService, map, externalNode);
     }
 
     @FXML

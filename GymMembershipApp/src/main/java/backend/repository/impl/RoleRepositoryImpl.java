@@ -27,7 +27,7 @@ public class RoleRepositoryImpl implements RoleRepository {
             String call = "CALL insert_role(?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setString(1, role.getRole());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
@@ -50,7 +50,7 @@ public class RoleRepositoryImpl implements RoleRepository {
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, role.getRoleId());
             callableStatement.setString(2, role.getRole());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
@@ -71,7 +71,7 @@ public class RoleRepositoryImpl implements RoleRepository {
             String call = "CALL delete_role(?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, role.getRoleId());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();

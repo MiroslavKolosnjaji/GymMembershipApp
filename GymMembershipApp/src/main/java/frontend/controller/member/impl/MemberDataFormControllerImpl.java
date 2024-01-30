@@ -1,7 +1,10 @@
 package frontend.controller.member.impl;
 
+import backend.domain.Member;
+import backend.service.MemberService;
 import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
+import frontend.exception.UserInputException;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -16,29 +19,32 @@ import java.util.Map;
 public class MemberDataFormControllerImpl {
 
 
-    public static void insert(Map<String, TextField> textFields, Node externalNode){
+    public static void insert(MemberService memberService, Map<String, TextField> textFields, Node externalNode){
 
-        for(var field : textFields.entrySet()){
-            if (field.getValue().getText().isEmpty() || field.getValue().getText().isBlank()){
-                ControllerUtil.showAlert(Alert.AlertType.WARNING, "Information", "Field" + field.getValue().getId() + " is not filled! Please all fields must be filled.");
-                return;
-            }
+        try{
+            ControllerUtil.validateInput(textFields, null);
+
+            String firstName = textFields.get("firstName").getText().trim();
+            String lastName = textFields.get("lastName").getText().trim();
+            String phone = textFields.get("phone").getText().trim();
+            String email = textFields.get("email").getText().trim();
+
+            System.out.println(firstName + " " + lastName + " " + phone + " " + email);
+            memberService.add(new Member(null, firstName, lastName, email, phone, null));
+
+            if(externalNode != null)
+                closeWindow(externalNode);
+
+        }catch (Exception uie){
+            uie.printStackTrace();
+            ControllerUtil.showAlert(Alert.AlertType.WARNING, "Information", uie.getMessage());
         }
 
-        String firstName = textFields.get("firstName").getText().trim();
-        String lastName = textFields.get("lastName").getText().trim();
-        String phone = textFields.get("phone").getText().trim();
-        String email = textFields.get("email").getText().trim();
-
-        System.out.println(firstName + " " + lastName + " " + phone + " " + email);
-
-        if(externalNode != null)
-            closeWindow(externalNode);
 
     }
 
 
-    private static void closeWindow(Node node){
+    public static void closeWindow(Node node){
         ((AnchorPane)node).getChildren().removeLast();
         ControllerEffectsUtil.removeEffect(((AnchorPane)node).getChildren().get(0));
     }

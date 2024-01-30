@@ -82,6 +82,6 @@
    </stylesheets>
    <styleClass>
       <String fx:value="root" />
-      <String fx:value="neonBorder" />
+      <String fx:value="neon-border" />
    </styleClass>
 </AnchorPane>

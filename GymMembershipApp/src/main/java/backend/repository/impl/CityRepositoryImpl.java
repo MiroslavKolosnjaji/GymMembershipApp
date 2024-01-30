@@ -27,7 +27,7 @@ public class CityRepositoryImpl implements CityRepository {
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setString(1, city.getName());
             callableStatement.setString(2, city.getName());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
@@ -50,7 +50,7 @@ public class CityRepositoryImpl implements CityRepository {
             callableStatement.setLong(1, city.getCityId());
             callableStatement.setString(2, city.getName());
             callableStatement.setString(3, city.getZipCode());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
@@ -72,7 +72,7 @@ public class CityRepositoryImpl implements CityRepository {
             String call = "CALL delete_city(?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, city.getCityId());
-            callableStatement.execute();
+            callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
