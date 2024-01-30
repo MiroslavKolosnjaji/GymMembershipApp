@@ -1,7 +1,10 @@
 package frontend.controller;
 
+import backend.database.Database;
+import backend.exception.DatabaseException;
 import frontend.exception.UserInputException;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 import java.util.Map;
@@ -17,6 +20,31 @@ public class ControllerUtil {
         alert.setHeaderText(null);
         alert.setContentText(contentText);
         alert.showAndWait();
+    }
+
+    public static void showConfirmationAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Are you sure?");
+        alert.setContentText("Application will be closed. Do you want to proceed?");
+
+        ButtonType yes = new ButtonType("Yes");
+        ButtonType no = new ButtonType("no");
+
+        alert.getButtonTypes().setAll(yes, no);
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == yes) {
+                try {
+                    Database.getInstance().disconnectFromDatabase();
+                    System.exit(0);
+                } catch (DatabaseException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (response == no) {
+                alert.close();
+            }
+        });
     }
 
 

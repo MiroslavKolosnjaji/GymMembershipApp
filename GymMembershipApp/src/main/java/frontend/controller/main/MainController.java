@@ -1,6 +1,8 @@
 package frontend.controller.main;
 
 
+import backend.database.Database;
+import backend.exception.DatabaseException;
 import backend.repository.CityRepository;
 import backend.repository.GymRepository;
 import backend.repository.MemberRepository;
@@ -18,6 +20,7 @@ import backend.service.impl.GymServiceImpl;
 import backend.service.impl.MemberServiceImpl;
 import backend.service.impl.UserServiceImpl;
 import frontend.controller.ControllerEffectsUtil;
+import frontend.controller.ControllerUtil;
 import frontend.controller.member.MemberDataFormController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -126,6 +129,13 @@ public class MainController implements Initializable {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    @FXML
+    void closeForm(MouseEvent event) {
+
+
+
     }
 
     @FXML

@@ -66,7 +66,7 @@
                <children>
                   <FontAwesomeIcon fx:id="minimize" glyphName="TOGGLE_DOWN" size="24" styleClass="text-color" />
                   <FontAwesomeIcon fx:id="expand" glyphName="TOGGLE_UP" layoutX="71.0" layoutY="34.0" size="24" styleClass="text-color" />
-                  <FontAwesomeIcon fx:id="close" glyphName="CLOSE" layoutX="80.0" layoutY="34.0" size="24" styleClass="text-color" />
+                  <FontAwesomeIcon fx:id="close" glyphName="CLOSE" layoutX="80.0" layoutY="34.0" onMouseClicked="#closeForm" size="24" styleClass="text-color" />
                </children>
             </HBox>
             <VBox alignment="CENTER" layoutX="14.0" layoutY="210.0" prefHeight="177.0" prefWidth="233.0" spacing="19.0" stylesheets="@../login/style.css">
