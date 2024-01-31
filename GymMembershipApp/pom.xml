@@ -19,14 +19,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21</version>
-            <groupId>de.jensd</groupId>
-            <artifactId>fontawesomefx-fontawesome</artifactId>
-            <version>8.21</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>21</version>
         </dependency>
         <dependency>
             <groupId>com.dlsc.formsfx</groupId>

@@ -28,32 +28,32 @@
             </Pane>
             <ScrollPane fx:id="tableScrollPane" layoutX="367.0" layoutY="148.0" prefHeight="577.0" prefWidth="841.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css">
                <content>
-                  <VBox fx:id="pnItems" alignment="TOP_RIGHT" prefHeight="587.0" prefWidth="826.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css" />
+                  <VBox fx:id="pnItems" alignment="CENTER" prefHeight="587.0" prefWidth="826.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css" />
                </content>
             </ScrollPane>
-            <HBox fx:id="tableHeader" alignment="CENTER" layoutX="367.0" layoutY="94.0" prefHeight="47.0" prefWidth="828.0" spacing="100.0" styleClass="table-header" stylesheets="@mainComponentStyle.css">
+            <HBox fx:id="tableHeader" alignment="CENTER" layoutX="367.0" layoutY="94.0" prefHeight="47.0" prefWidth="828.0" spacing="57.0" styleClass="table-header" stylesheets="@mainComponentStyle.css">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="22.13671875">
+                  <Text layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full name" wrappingWidth="106.13671875">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="106.13671875">
+                  <Text layoutX="48.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Membership" wrappingWidth="133.13671875">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="48.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="105.13671875">
+                  <Text layoutX="163.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date from" wrappingWidth="104.13671875">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="163.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="70.13671875">
+                  <Text layoutX="278.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date to" wrappingWidth="79.13671875">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="278.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.13671875">
+                  <Text layoutX="580.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="79.13671875">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
@@ -161,7 +161,7 @@
                   <Bloom />
                </effect>
             </HBox>
-            <ComboBox fx:id="listCombo" layoutX="898.0" layoutY="37.0" prefHeight="27.0" prefWidth="182.0" promptText="DEFAULT" styleClass="button-color" stylesheets="@../css/formStyle.css" />
+            <ComboBox fx:id="listCombo" layoutX="898.0" layoutY="37.0" prefHeight="27.0" prefWidth="182.0" promptText="DEFAULT" styleClass="combo-color" stylesheets="@../css/formStyle.css" />
             <Text layoutX="898.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="SHOW MEMBERSHIP LIST" />
          </children>
       </AnchorPane>

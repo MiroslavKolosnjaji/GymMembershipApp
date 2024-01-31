@@ -6,29 +6,19 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="pnlItem" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="820.0" spacing="52.0" styleClass="item-pane" stylesheets="@../mainComponentStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="pnlItem" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="820.0" spacing="48.0" styleClass="item-pane" stylesheets="@../mainComponentStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" styleClass="item-image">
+      <ImageView fitHeight="26.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/Icons/user.png" />
+            <Image url="@../../../resources/Icons/user.png" />
          </image>
       </ImageView>
-      <Label prefHeight="25.0" prefWidth="31.0" text="3" textFill="WHITE">
+      <Label prefHeight="25.0" prefWidth="172.0" text="MIROSLAV KOLOSNJAJI" textFill="WHITE">
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>
       </Label>
-      <Label prefHeight="25.0" prefWidth="63.0" text="Miroslav" textFill="WHITE">
-         <font>
-            <Font name="Calibri Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="40.0" layoutY="25.0" prefHeight="25.0" prefWidth="75.0" text="Kolosnjaji" textFill="WHITE">
-         <font>
-            <Font name="Calibri Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="103.0" layoutY="25.0" prefHeight="25.0" prefWidth="75.0" text="064123435" textFill="WHITE">
+      <Label layoutX="103.0" layoutY="25.0" prefHeight="25.0" prefWidth="75.0" text="MONTH" textFill="WHITE">
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>
@@ -39,6 +29,11 @@
          </font>
       </Label>
       <Label layoutX="178.0" layoutY="25.0" prefHeight="25.0" prefWidth="75.0" text="06.03.2024" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="708.0" layoutY="25.0" prefHeight="25.0" prefWidth="129.0" text="2500.00 din" textFill="WHITE">
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>

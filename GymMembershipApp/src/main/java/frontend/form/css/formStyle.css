@@ -16,7 +16,7 @@
 }
 
 .glass-effect{
-    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-color: rgba(255, 255, 255, 0.8);
     -fx-effect: innershadow(gaussian, #333, 10, 0, 0, 0);
     /*-fx-border-color: #220&bb;*/
     -fx-border-width: 2px 2px 2px 2px;
@@ -61,4 +61,12 @@
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-text-fill: white;
+}
+
+.combo-color .text-field{
+    -fx-text-fill: white;
+}
+
+.combo-color .list-view{
+    -fx-background-color: linear-gradient(to right, #333C8A, #CF3E8B);
 }

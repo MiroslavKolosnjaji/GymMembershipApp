@@ -25,11 +25,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -143,7 +146,7 @@ public class MainController implements Initializable {
 
     private void populateCombo(){
         List.of("DEFAULT", "YEAR", "6 MONTHS", "MONTH").forEach(c -> listCombo.getItems().add(c));
-
+        listCombo.setStyle(".combo-color");
     }
 
     @FXML
@@ -182,8 +185,16 @@ public class MainController implements Initializable {
             memberForm.setLayoutX(formX - (300));
             memberForm.setLayoutY(formY - (300));
 
+            BoxBlur blur = new BoxBlur(15,15, 5);
             root.getChildren().add(memberForm);
-            ControllerEffectsUtil.removeEffect(root.getChildren().getLast());
+            root.getChildren().getLast().setEffect(blur);
+
+            Scene scene = new Scene(root, 600, 600);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
