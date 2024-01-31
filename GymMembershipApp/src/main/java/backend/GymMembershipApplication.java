@@ -28,7 +28,7 @@ public class GymMembershipApplication extends Application {
         userRepository = new UserRepositoryImpl();
         userService = new UserServiceImpl(userRepository);
 
-        var location = GymMembershipApplication.class.getResource("/login/login_form.fxml");
+        var location = GymMembershipApplication.class.getResource("/form/login/login_form.fxml");
         System.out.println(location);
         FXMLLoader fxmlLoader = new FXMLLoader(location);
         fxmlLoader.setController(new LoginController(userService));

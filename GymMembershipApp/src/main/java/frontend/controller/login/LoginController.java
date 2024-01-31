@@ -115,7 +115,7 @@ public class LoginController{
 
     private void openMainForm() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/mainform/main_form.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/form/mainform/main_form.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.setFill(Color.TRANSPARENT);
 

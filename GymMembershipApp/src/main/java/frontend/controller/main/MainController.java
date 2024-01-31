@@ -136,7 +136,7 @@ public class MainController implements Initializable {
         Node[] nodes = new Node[100];
         for (int i = 0; i < nodes.length; i++) {
             try {
-                nodes[i] = FXMLLoader.load(getClass().getResource("/mainform/item/item.fxml"));
+                nodes[i] = FXMLLoader.load(getClass().getResource("/form/mainform/item/item.fxml"));
                 pnItems.getChildren().add(nodes[i]);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -146,7 +146,7 @@ public class MainController implements Initializable {
 
     private void populateCombo(){
         List.of("DEFAULT", "YEAR", "6 MONTHS", "MONTH").forEach(c -> listCombo.getItems().add(c));
-        listCombo.setStyle(".combo-color");
+        listCombo.getStylesheets().add("combo-color");
     }
 
     @FXML
@@ -158,7 +158,7 @@ public class MainController implements Initializable {
     protected void showStatistics(MouseEvent mouseEvent) {
         try {
         ControllerEffectsUtil.blurEffect(root);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/statistics/statisticsForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/form/statistics/statisticsForm.fxml"));
         loader.setController(new StatisticsFormController());
 
             Parent statistics = loader.load();
@@ -176,7 +176,7 @@ public class MainController implements Initializable {
         try {
             ControllerEffectsUtil.blurEffect(root);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/member/memberDataForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/form/member/memberDataForm.fxml"));
             loader.setController(new MemberDataFormController(memberService, root));
             Parent memberForm = loader.load();
             double formX = root.getWidth() / 2;
@@ -185,16 +185,7 @@ public class MainController implements Initializable {
             memberForm.setLayoutX(formX - (300));
             memberForm.setLayoutY(formY - (300));
 
-            BoxBlur blur = new BoxBlur(15,15, 5);
             root.getChildren().add(memberForm);
-            root.getChildren().getLast().setEffect(blur);
-
-            Scene scene = new Scene(root, 600, 600);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-
-
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

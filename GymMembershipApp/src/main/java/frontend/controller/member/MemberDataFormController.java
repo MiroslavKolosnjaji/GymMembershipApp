@@ -5,6 +5,7 @@ import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
 import frontend.controller.member.impl.MemberDataFormControllerImpl;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -15,8 +16,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 public class MemberDataFormController {
 
@@ -85,6 +88,7 @@ public class MemberDataFormController {
     void confirmRemoveGlowEffect(MouseEvent event) {
         ControllerEffectsUtil.removeEffect(btnPane);
     }
+
 
 
 }
