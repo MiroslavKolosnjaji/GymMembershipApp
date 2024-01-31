@@ -1,8 +1,5 @@
 package frontend.controller.main;
 
-
-import backend.database.Database;
-import backend.exception.DatabaseException;
 import backend.repository.CityRepository;
 import backend.repository.GymRepository;
 import backend.repository.MemberRepository;
@@ -22,20 +19,22 @@ import backend.service.impl.UserServiceImpl;
 import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
 import frontend.controller.member.MemberDataFormController;
+import frontend.controller.statistics.StatisticsFormController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -44,7 +43,10 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML
-    private VBox chartVbox;
+    private FontAwesomeIcon close;
+
+    @FXML
+    private FontAwesomeIcon expand;
 
     @FXML
     private Label lblTotal;
@@ -53,13 +55,19 @@ public class MainController implements Initializable {
     private Label lblTotalLast;
 
     @FXML
+    private ComboBox<String> listCombo;
+
+    @FXML
+    private FontAwesomeIcon logout;
+
+    @FXML
+    private FontAwesomeIcon minimize;
+
+    @FXML
     private VBox pnItems;
 
     @FXML
     private AnchorPane root;
-
-    @FXML
-    private AnchorPane child;
 
     @FXML
     private Pane search_pane;
@@ -117,7 +125,9 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         populateTable();
+        populateCombo();
     }
+
 
     private void populateTable() {
         Node[] nodes = new Node[100];
@@ -131,6 +141,11 @@ public class MainController implements Initializable {
         }
     }
 
+    private void populateCombo(){
+        List.of("DEFAULT", "YEAR", "6 MONTHS", "MONTH").forEach(c -> listCombo.getItems().add(c));
+
+    }
+
     @FXML
     void closeForm(MouseEvent event) {
         ControllerUtil.closeApplication("Confirm dialog", "Are you sure?", "Application will be closed. Do you want to proceed?");
@@ -138,7 +153,19 @@ public class MainController implements Initializable {
 
     @FXML
     protected void showStatistics(MouseEvent mouseEvent) {
+        try {
         ControllerEffectsUtil.blurEffect(root);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/statistics/statisticsForm.fxml"));
+        loader.setController(new StatisticsFormController());
+
+            Parent statistics = loader.load();
+            root.getChildren().add(statistics);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     @FXML

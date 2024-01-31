@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -25,9 +26,9 @@
                   <TextField fx:id="txtSearchField" layoutX="23.0" layoutY="11.0" prefHeight="27.0" prefWidth="274.0" styleClass="textual-field-color" stylesheets="@../css/formStyle.css" />
                </children>
             </Pane>
-            <ScrollPane fx:id="tableScrollPane" layoutX="367.0" layoutY="148.0" prefHeight="636.0" prefWidth="841.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css">
+            <ScrollPane fx:id="tableScrollPane" layoutX="367.0" layoutY="148.0" prefHeight="577.0" prefWidth="841.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css">
                <content>
-                  <VBox fx:id="pnItems" alignment="TOP_RIGHT" prefHeight="633.0" prefWidth="826.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css" />
+                  <VBox fx:id="pnItems" alignment="TOP_RIGHT" prefHeight="587.0" prefWidth="826.0" styleClass="table-scroll-pane" stylesheets="@mainComponentStyle.css" />
                </content>
             </ScrollPane>
             <HBox fx:id="tableHeader" alignment="CENTER" layoutX="367.0" layoutY="94.0" prefHeight="47.0" prefWidth="828.0" spacing="100.0" styleClass="table-header" stylesheets="@mainComponentStyle.css">
@@ -160,6 +161,8 @@
                   <Bloom />
                </effect>
             </HBox>
+            <ComboBox fx:id="listCombo" layoutX="898.0" layoutY="37.0" prefHeight="27.0" prefWidth="182.0" promptText="DEFAULT" styleClass="button-color" stylesheets="@../css/formStyle.css" />
+            <Text layoutX="898.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="SHOW MEMBERSHIP LIST" />
          </children>
       </AnchorPane>
    </children>

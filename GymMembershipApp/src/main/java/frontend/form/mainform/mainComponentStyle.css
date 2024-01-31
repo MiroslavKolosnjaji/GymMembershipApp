@@ -47,17 +47,3 @@
     -fx-border-style: solid;
 
 }
-
-.chart{
-    -fx-background-color: transparent;
-    -fx-font-size: 20;
-    -fx-text-fill: white;
-}
-
-.axis-label{
-    -fx-text-fill: #ffffff;
-}
-
-.chart-plot-background{
-    -fx-background-c: transparent;
-}

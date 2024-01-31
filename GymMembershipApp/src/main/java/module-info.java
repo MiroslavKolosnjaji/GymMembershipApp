@@ -4,6 +4,7 @@ module com.example.gymmembership{
 
     requires com.dlsc.formsfx;
     requires java.sql;
+    requires fontawesomefx;
 
     opens backend to javafx.fxml;
     exports backend;
@@ -15,4 +16,6 @@ module com.example.gymmembership{
     opens frontend.controller.main to javafx.fxml;
     exports frontend.controller.member;
     opens  frontend.controller.member to javafx.fxml;
+    exports frontend.controller.statistics;
+    opens frontend.controller.statistics to javafx.fxml;
 }

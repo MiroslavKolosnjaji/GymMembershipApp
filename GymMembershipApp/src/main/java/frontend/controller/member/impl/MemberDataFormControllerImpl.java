@@ -4,6 +4,7 @@ import backend.domain.Member;
 import backend.service.MemberService;
 import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
+import frontend.controller.member.MemberDataFormController;
 import frontend.exception.UserInputException;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -17,7 +18,6 @@ import java.util.Map;
  * @author Miroslav Kološnjaji
  */
 public class MemberDataFormControllerImpl {
-
 
     public static void insert(MemberService memberService, Map<String, TextField> textFields, Node externalNode){
 

@@ -35,7 +35,7 @@
                               <DropShadow blurType="GAUSSIAN" height="9.28" radius="4.14" spread="0.6" width="9.28" />
                            </effect>
                         </Label>
-                        <TextField fx:id="txtMember" prefHeight="25.0" prefWidth="327.0" styleClass="textual-field-color" stylesheets="@../css/formStyle.css" text="Miroslav Kolosnjaji">
+                        <TextField fx:id="txtMember" prefHeight="25.0" prefWidth="327.0" styleClass="textual-field-color" stylesheets="@../css/formStyle.css" text="MIROSLAV KOLOSNJAJI">
                            <font>
                               <Font name="Calibri Bold" size="18.0" />
                            </font>
