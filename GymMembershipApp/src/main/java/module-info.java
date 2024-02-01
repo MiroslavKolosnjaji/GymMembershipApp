@@ -18,4 +18,6 @@ module com.example.gymmembership{
     opens  frontend.controller.member to javafx.fxml;
     exports frontend.controller.statistics;
     opens frontend.controller.statistics to javafx.fxml;
+    exports frontend.controller.user;
+    opens frontend.controller.user to javafx.fxml;
 }

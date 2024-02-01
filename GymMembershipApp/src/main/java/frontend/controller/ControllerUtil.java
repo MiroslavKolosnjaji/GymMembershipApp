@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.util.Map;
 
@@ -25,9 +26,9 @@ public class ControllerUtil {
 
     public static void closeApplication(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Are you sure?");
-        alert.setContentText("Application will be closed. Do you want to proceed?");
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
 
         ButtonType yes = new ButtonType("Yes");
         ButtonType no = new ButtonType("no");
@@ -48,10 +49,31 @@ public class ControllerUtil {
         });
     }
 
+    public static void closeForm(String title, String headerText, String contentText, Stage stage){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+
+        ButtonType yes = new ButtonType("Yes");
+        ButtonType no = new ButtonType("no");
+
+        alert.getButtonTypes().setAll(yes, no);
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == yes) {
+                stage.close();
+            } else if (response == no) {
+                alert.close();
+            }
+        });
+    }
+
 
     public static void validateInput(Map<String, TextField> textFieldMap, String fieldName) throws UserInputException {
 
-        validateLength(textFieldMap.get("phone"));
+        if(textFieldMap.containsKey("phone"))
+            validateLength(textFieldMap.get("phone"));
 
         if (fieldName == null)
             fieldName = "no restrictions";

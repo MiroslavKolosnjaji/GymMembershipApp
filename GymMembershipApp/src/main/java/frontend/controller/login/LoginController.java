@@ -1,22 +1,27 @@
 package frontend.controller.login;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import frontend.controller.ControllerEffectsUtil;
 import backend.database.Database;
 import backend.domain.User;
 import backend.exception.DatabaseException;
 import backend.service.UserService;
 import frontend.controller.ControllerUtil;
+import frontend.controller.user.CreateAccountFormController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -29,7 +34,7 @@ import java.net.URL;
 import java.security.Key;
 import java.util.ResourceBundle;
 
-public class LoginController{
+public class LoginController {
 
     @FXML
     private AnchorPane root;
@@ -43,8 +48,11 @@ public class LoginController{
     private TextField usernameTxt;
     @FXML
     private PasswordField passwordTxt;
+    @FXML
+    private FontAwesomeIcon close;
 
     private UserService userService;
+
 
     public LoginController(UserService userService) {
         try {
@@ -72,7 +80,7 @@ public class LoginController{
 
     @FXML
     protected void createAccountTextMouseEntered() {
-       ControllerEffectsUtil.glowEffect(createAccountVBox);
+        ControllerEffectsUtil.glowEffect(createAccountVBox);
     }
 
     @FXML
@@ -113,6 +121,27 @@ public class LoginController{
 
     }
 
+    @FXML
+    void createNewAccount(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/form/user/createAccountForm.fxml"));
+            CreateAccountFormController createAccountFormController = new CreateAccountFormController(userService);
+            fxmlLoader.setController(createAccountFormController);
+
+            Scene scene = new Scene(fxmlLoader.load());
+            scene.setFill(Color.TRANSPARENT);
+
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
+            createAccountFormController.setStage(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     private void openMainForm() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/form/mainform/main_form.fxml"));
@@ -127,6 +156,16 @@ public class LoginController{
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+    }
+
+    @FXML
+    void closeGlowEffect(MouseEvent event) {
+        ControllerEffectsUtil.glowEffect(close);
+    }
+
+    @FXML
+    void closeRemoveGlowEffect(MouseEvent event) {
+        ControllerEffectsUtil.removeEffect(close);
     }
 
     private boolean isFilled(String string) {
