@@ -1,0 +1,75 @@
+.root{
+    -fx-background-color: #0f0826;
+   /* -fx-border-color: #220&bb;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;*/
+}
+
+.inner-pane{
+    -fx-background-color: #5033ab;   /*#1c085c*/
+    -fx-border-color: #5033ab;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+
+}
+
+.login-text-color{
+  -fx-fill: linear-gradient(to right, #333C8A, #CF3E8B);
+}
+
+
+.textual-field-color{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: linear-gradient(to right, #333C8A, #CF3E8B);
+}
+
+.login-button{
+    -fx-background-color: transparent;
+    -fx-background-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+
+.neon-border{
+    -fx-border-color: #0f0826;
+    -fx-border-width: 5px 5px 5px 5px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-padding: 10px;
+
+    -fx-rotate: 0;
+    -fx-background-color: #0f0826;
+    -fx-animation: rotateAnimation 3s linear infinite, glowAnimation 5s linear infinite;
+}
+
+@keyframes rotateAnimation {
+    from {
+        -fx-rotate: 0;
+    }
+     to {
+        -fx-rotate: 360;
+    }
+}
+
+
+
+@keyframes glowAnimation{
+    0%{
+        -fx-effect: glow(0.5, #5416a6);
+    }
+    50%{
+        -fx-effect: glow(0.5, #8443d9);
+    }
+    100%{
+        -fx-effect: glow(0.5, #5416a6);
+    }
+
+}

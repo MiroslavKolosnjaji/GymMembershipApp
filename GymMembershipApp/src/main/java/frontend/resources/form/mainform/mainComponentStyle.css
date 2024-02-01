@@ -1,0 +1,59 @@
+
+.search-pane{
+    -fx-background-color: #5033ab;   /*#1c085c*/
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+
+}
+
+.table-header{
+    -fx-background-color: #5033ab;
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.table-pane{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-background-radius: 10px 10px 50px 10px;
+    -fx-border-radius: 10px 10px 40px 10px;
+}
+
+.item-image{
+    -fx-background-color: #5033ab;
+}
+
+.table-scroll-pane{
+    -fx-background-color: #0f0826;
+    -fx-border-color: #0f0826;
+    -fx-spacing: 2px;
+    -fx-padding: 0px;
+    -fx-background: null;
+    -fx-border-width: 0px;
+}
+
+.table-scroll-pane .scroll-bar:vertical{
+    -fx-background-color: #5033ab;
+}
+
+.table-scroll-pane .scroll-bar:vertical .thumb{
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 10px;
+}
+
+.item-pane{
+    -fx-background-color: #5033ab;   /*#1c085c*/
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-width: 4px 4px 4px 4px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+
+}

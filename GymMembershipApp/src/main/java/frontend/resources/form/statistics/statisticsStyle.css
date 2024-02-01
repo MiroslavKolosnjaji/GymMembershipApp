@@ -1,0 +1,18 @@
+.root{
+    -fx-background-color: transparent;
+}
+
+.chart{
+    -fx-background-color: transparent;
+    -fx-legend
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+}
+
+.axis-label{
+    -fx-text-fill: #ffffff;
+}
+
+.chart-plot-background{
+    -fx-background-c: transparent;
+}
