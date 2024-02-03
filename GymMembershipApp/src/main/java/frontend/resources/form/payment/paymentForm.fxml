@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
@@ -15,10 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" styleClass="glass-effect" stylesheets="@paymentStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="800.0" styleClass="glass-effect" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" layoutX="23.0" layoutY="34.0" prefHeight="217.0" prefWidth="752.0" spacing="99.0">
+      <HBox alignment="CENTER" layoutX="24.0" layoutY="320.0" prefHeight="217.0" prefWidth="752.0" spacing="99.0">
          <children>
             <VBox prefHeight="178.0" prefWidth="350.0">
                <children>
@@ -35,7 +35,7 @@
                               <DropShadow blurType="GAUSSIAN" height="9.28" radius="4.14" spread="0.6" width="9.28" />
                            </effect>
                         </Label>
-                        <TextField fx:id="txtMember" prefHeight="25.0" prefWidth="327.0" styleClass="textual-field-color" stylesheets="@../css/formStyle.css" text="MIROSLAV KOLOSNJAJI">
+                        <TextField fx:id="txtMember" editable="false" prefHeight="25.0" prefWidth="327.0" styleClass="textual-field-color" stylesheets="@../../css/formStyle.css">
                            <font>
                               <Font name="Calibri Bold" size="18.0" />
                            </font>
@@ -56,14 +56,14 @@
                            </effect>
                         </Label>
                         <ComboBox fx:id="comboMembership" prefHeight="25.0" prefWidth="230.0">
-                           <stylesheets>
-                              <URL value="@../css/formStyle.css" />
-                              <URL value="@paymentStyle.css" />
-                           </stylesheets>
                            <styleClass>
                               <String fx:value="button-color" />
                               <String fx:value="combo-text" />
                            </styleClass>
+                           <stylesheets>
+                              <URL value="@../../css/formStyle.css" />
+                              <URL value="@paymentStyle.css" />
+                           </stylesheets>
                         </ComboBox>
                      </children>
                   </VBox>
@@ -84,7 +84,7 @@
                               <DropShadow blurType="GAUSSIAN" height="9.28" radius="4.14" spread="0.6" width="9.28" />
                            </effect>
                         </Label>
-                        <DatePicker fx:id="dPckrDateFrom" prefHeight="25.0" prefWidth="232.0" />
+                        <DatePicker fx:id="datePckrDateFrom" editable="false" prefHeight="25.0" prefWidth="232.0" styleClass="text-color" stylesheets="@../../css/formStyle.css" />
                      </children>
                   </VBox>
                   <VBox layoutX="10.0" layoutY="10.0" prefHeight="88.0" prefWidth="277.0">
@@ -100,21 +100,27 @@
                               <DropShadow blurType="GAUSSIAN" height="9.28" radius="4.14" spread="0.6" width="9.28" />
                            </effect>
                         </Label>
-                        <DatePicker fx:id="dPckrDateTo" prefHeight="25.0" prefWidth="232.0" />
+                        <DatePicker fx:id="datePckrDateTo" editable="false" prefHeight="25.0" prefWidth="232.0" />
                      </children>
                   </VBox>
                </children>
             </VBox>
          </children>
       </HBox>
-      <Pane layoutX="267.0" layoutY="251.0" prefHeight="80.0" prefWidth="265.0">
+      <Pane layoutX="269.0" layoutY="586.0" prefHeight="80.0" prefWidth="265.0">
          <children>
-            <Button fx:id="btnConfirm" layoutX="45.0" layoutY="13.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="175.0" styleClass="button-color" stylesheets="@../css/formStyle.css" text="CONFIRM" textFill="WHITE">
+            <Button fx:id="btnConfirm" layoutX="45.0" layoutY="13.0" mnemonicParsing="false" onAction="#confirmation" prefHeight="55.0" prefWidth="175.0" styleClass="button-color" stylesheets="@../../css/formStyle.css" text="CONFIRM" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="18.0" />
                </font>
             </Button>
          </children>
       </Pane>
+      <FontAwesomeIcon fx:id="close" glyphName="CLOSE" layoutX="756.0" layoutY="35.0" size="24" styleClass="text-color" />
+      <Pane layoutX="48.0" layoutY="38.0" prefHeight="239.0" prefWidth="708.0" styleClass="border-color" stylesheets="@paymentStyle.css" />
    </children>
+   <stylesheets>
+      <URL value="@paymentStyle.css" />
+      <URL value="@../../css/formStyle.css" />
+   </stylesheets>
 </AnchorPane>

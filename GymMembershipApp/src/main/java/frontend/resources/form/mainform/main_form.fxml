@@ -75,7 +75,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="173.0" spacing="18.0">
                      <children>
                         <FontAwesomeIcon glyphName="BOOK" size="36" styleClass="text-color" />
-                        <Text fx:id="txtCreate" fill="WHITE" onMouseClicked="#createNew" onMouseEntered="#createNewGlowEffect" onMouseExited="#createNewRemoveGlowEffect" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE NEW">
+                        <Text fx:id="txtCreate" fill="WHITE" onMouseClicked="#createNew" onMouseEntered="#createNewGlowEffect" onMouseExited="#createNewRemoveGlowEffect" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW MEMBER">
                            <font>
                               <Font name="Calibri Bold" size="18.0" />
                            </font>
@@ -85,17 +85,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="173.0" spacing="18.0">
                      <children>
                         <FontAwesomeIcon glyphName="EDIT" size="36" styleClass="text-color" />
-                        <Text fx:id="txtUpdate" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="UPDATE EXISTED">
-                           <font>
-                              <Font name="Calibri Bold" size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="65.0" prefHeight="36.0" prefWidth="203.0" spacing="18.0">
-                     <children>
-                        <FontAwesomeIcon glyphName="TRASH" size="36" styleClass="text-color" />
-                        <Text fx:id="txtDelete" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DELETE">
+                        <Text fx:id="txtUpdate" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT MEMBER">
                            <font>
                               <Font name="Calibri Bold" size="18.0" />
                            </font>
@@ -105,7 +95,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="120.0" prefHeight="47.0" prefWidth="173.0" spacing="18.0">
                      <children>
                         <FontAwesomeIcon glyphName="CREDIT_CARD" size="36" styleClass="text-color" />
-                        <Text fx:id="txtPayment" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW PAYMENT">
+                        <Text fx:id="txtPayment" fill="WHITE" onMouseClicked="#newPayment" onMouseEntered="#newPaymentGlowEffect" onMouseExited="#newPaymentRemoveGlowEffect" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW PAYMENT">
                            <font>
                               <Font name="Calibri Bold" size="18.0" />
                            </font>
@@ -116,6 +106,16 @@
                      <children>
                         <FontAwesomeIcon glyphName="TASKS" size="36" styleClass="text-color" />
                         <Text fx:id="txtStatistics" fill="WHITE" onMouseClicked="#showStatistics" strokeType="OUTSIDE" strokeWidth="0.0" text="STATISTICS">
+                           <font>
+                              <Font name="Calibri Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="175.0" prefHeight="47.0" prefWidth="173.0" spacing="18.0">
+                     <children>
+                        <FontAwesomeIcon glyphName="UNIVERSITY" size="36" styleClass="text-color" />
+                        <Text fx:id="txtStatistics1" fill="WHITE" onMouseClicked="#showStatistics" strokeType="OUTSIDE" strokeWidth="0.0" text="ACCOUNT">
                            <font>
                               <Font name="Calibri Bold" size="18.0" />
                            </font>
@@ -161,7 +161,7 @@
                   <Bloom />
                </effect>
             </HBox>
-            <ComboBox fx:id="listCombo" layoutX="898.0" layoutY="37.0" prefHeight="27.0" prefWidth="182.0" promptText="DEFAULT" styleClass="combo-color" stylesheets="@../css/formStyle.css" />
+            <ComboBox fx:id="listCombo" layoutX="898.0" layoutY="37.0" prefHeight="27.0" prefWidth="182.0" promptText="DEFAULT" styleClass="button-color" stylesheets="@../css/formStyle.css" />
             <Text layoutX="898.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="SHOW MEMBERSHIP LIST" />
          </children>
       </AnchorPane>

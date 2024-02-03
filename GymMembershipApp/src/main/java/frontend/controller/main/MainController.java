@@ -19,7 +19,9 @@ import backend.service.impl.UserServiceImpl;
 import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
 import frontend.controller.member.MemberDataFormController;
+import frontend.controller.payment.PaymentFormController;
 import frontend.controller.statistics.StatisticsFormController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +39,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -103,24 +106,20 @@ public class MainController implements Initializable {
     private GymService gymService;
     private UserService userService;
     private MemberService memberService;
-    private CityRepository cityRepository;
-    private GymRepository gymRepository;
-    private UserRepository userRepository;
-    private MemberRepository memberRepository;
 
 
     public MainController() {
 
-        this.cityRepository = new CityRepositoryImpl();
+        CityRepository cityRepository = new CityRepositoryImpl();
         this.cityService = new CityServiceImpl(cityRepository);
 
-        this.gymRepository = new GymRepositoryImpl();
+        GymRepository gymRepository = new GymRepositoryImpl();
         this.gymService = new GymServiceImpl(gymRepository);
 
-        this.userRepository = new UserRepositoryImpl();
+        UserRepository userRepository = new UserRepositoryImpl();
         this.userService = new UserServiceImpl(userRepository);
 
-        this.memberRepository = new MemberRepositoryImpl();
+        MemberRepository memberRepository = new MemberRepositoryImpl();
         this.memberService = new MemberServiceImpl(memberRepository);
 
     }
@@ -133,18 +132,18 @@ public class MainController implements Initializable {
 
 
     private void populateTable() {
-        Node[] nodes = new Node[100];
-        for (int i = 0; i < nodes.length; i++) {
+        List<Node> nodes = new LinkedList<>();
+        for (int i = 0; i < 100; i++) {
             try {
-                nodes[i] = FXMLLoader.load(getClass().getResource("/form/mainform/item/item.fxml"));
-                pnItems.getChildren().add(nodes[i]);
+                nodes.add(FXMLLoader.load(getClass().getResource("/form/mainform/item/item.fxml")));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
+        nodes.forEach(n -> pnItems.getChildren().add(n));
     }
 
-    private void populateCombo(){
+    private void populateCombo() {
         List.of("DEFAULT", "YEAR", "6 MONTHS", "MONTH").forEach(c -> listCombo.getItems().add(c));
         listCombo.getStylesheets().add("combo-color");
     }
@@ -155,11 +154,11 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    protected void showStatistics(MouseEvent mouseEvent) {
+    void showStatistics(MouseEvent mouseEvent) {
         try {
-        ControllerEffectsUtil.blurEffect(root);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/form/statistics/statisticsForm.fxml"));
-        loader.setController(new StatisticsFormController());
+            ControllerEffectsUtil.blurEffect(root);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/form/statistics/statisticsForm.fxml"));
+            loader.setController(new StatisticsFormController());
 
             Parent statistics = loader.load();
             root.getChildren().add(statistics);
@@ -172,32 +171,32 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    protected void createNew(MouseEvent mouseEvent) {
-        try {
-            ControllerEffectsUtil.blurEffect(root);
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/form/member/memberDataForm.fxml"));
-            loader.setController(new MemberDataFormController(memberService, root));
-            Parent memberForm = loader.load();
-            double formX = root.getWidth() / 2;
-            double formY = root.getHeight() / 2;
-
-            memberForm.setLayoutX(formX - (300));
-            memberForm.setLayoutY(formY - (300));
-
-            root.getChildren().add(memberForm);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
+    void createNew(MouseEvent mouseEvent) {
+        ControllerUtil.createForm("/form/member/memberDataForm.fxml", new MemberDataFormController(memberService, root), root, 300, 300);
     }
 
     @FXML
-    protected void createNewGlowEffect(MouseEvent event) {
+    void newPayment(MouseEvent event) {
+        ControllerUtil.createForm("/form/payment/paymentForm.fxml", new PaymentFormController(), root, 400, 200);
+    }
+
+    @FXML
+    void createNewGlowEffect(MouseEvent event) {
         ControllerEffectsUtil.glowEffect(txtCreate);
     }
 
     @FXML
-    protected void createNewRemoveGlowEffect(MouseEvent event) {
+    void createNewRemoveGlowEffect(MouseEvent event) {
         ControllerEffectsUtil.removeEffect(txtCreate);
+    }
+
+    @FXML
+    void newPaymentGlowEffect(MouseEvent event) {
+        ControllerEffectsUtil.glowEffect(txtPayment);
+    }
+
+    @FXML
+    void newPaymentRemoveGlowEffect(MouseEvent event) {
+        ControllerEffectsUtil.removeEffect(txtPayment);
     }
 }

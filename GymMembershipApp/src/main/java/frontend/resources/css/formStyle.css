@@ -7,15 +7,14 @@
 }
 
 
-
 .glass-effect{
     -fx-background-color: rgba(255, 255, 255, 0.8);
-    -fx-effect: innershadow(gaussian, #333, 10, 0, 0, 0.6);
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
-    /*-fx-border-color: #220&bb;*/
+}
+
+.border-color{
+    -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
     -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-radius: 50px;
-    -fx-background-radius: 50px;
+    -fx-border-radius: 20px;
 }
 
 
