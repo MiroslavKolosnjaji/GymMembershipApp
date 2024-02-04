@@ -22,4 +22,6 @@ module com.example.gymmembership{
     opens frontend.controller.user to javafx.fxml;
     exports frontend.controller.payment;
     opens frontend.controller.payment to javafx.fxml;
+
+
 }

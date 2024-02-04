@@ -1,5 +1,6 @@
 package frontend.controller;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -27,6 +28,7 @@ public class ControllerEffectsUtil {
 
         node.setEffect(blend);
     }
+
 
     public static void removeEffect(Node node){
         node.setEffect(null);

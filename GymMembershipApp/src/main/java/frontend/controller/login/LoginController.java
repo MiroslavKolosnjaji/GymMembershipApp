@@ -8,31 +8,22 @@ import backend.exception.DatabaseException;
 import backend.service.UserService;
 import frontend.controller.ControllerUtil;
 import frontend.controller.user.CreateAccountFormController;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.IOException;
-import java.net.URL;
-import java.security.Key;
-import java.util.ResourceBundle;
+
 
 public class LoginController {
 
@@ -160,12 +151,12 @@ public class LoginController {
 
     @FXML
     void closeGlowEffect(MouseEvent event) {
-        ControllerEffectsUtil.glowEffect(close);
+
     }
 
     @FXML
     void closeRemoveGlowEffect(MouseEvent event) {
-        ControllerEffectsUtil.removeEffect(close);
+
     }
 
     private boolean isFilled(String string) {
