@@ -53,10 +53,11 @@
     -fx-border-color: linear-gradient(to right, #333C8A, #CF3E8B);
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
-    -fx-text-fill: white;
 }
 
 .combo-color .text-field{
+    -fx-background-color: linear-gradient(to right, #333C8A, #CF3E8B);
+    -fx-border-radius: 20px;
     -fx-text-fill: white;
 }
 

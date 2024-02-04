@@ -177,7 +177,7 @@ public class MainController implements Initializable {
 
     @FXML
     void newPayment(MouseEvent event) {
-        ControllerUtil.createForm("/form/payment/paymentForm.fxml", new PaymentFormController(), root, 400, 200);
+        ControllerUtil.createForm("/form/payment/paymentForm.fxml", new PaymentFormController(memberService), root, 400, 200);
     }
 
     @FXML

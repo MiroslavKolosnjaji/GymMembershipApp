@@ -8,7 +8,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -16,13 +15,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="800.0" styleClass="glass-effect" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" styleClass="glass-effect" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" layoutX="24.0" layoutY="320.0" prefHeight="217.0" prefWidth="752.0" spacing="99.0">
+      <HBox alignment="CENTER" layoutX="23.0" layoutY="34.0" prefHeight="217.0" prefWidth="752.0" spacing="99.0">
          <children>
             <VBox prefHeight="178.0" prefWidth="350.0">
                <children>
-                  <VBox prefHeight="88.0" prefWidth="320.0">
+                  <VBox prefHeight="88.0" prefWidth="350.0">
                      <children>
                         <Label fx:id="lblMember" text="Member" textFill="WHITE">
                            <font>
@@ -35,11 +34,16 @@
                               <DropShadow blurType="GAUSSIAN" height="9.28" radius="4.14" spread="0.6" width="9.28" />
                            </effect>
                         </Label>
-                        <TextField fx:id="txtMember" editable="false" prefHeight="25.0" prefWidth="327.0" styleClass="textual-field-color" stylesheets="@../../css/formStyle.css">
-                           <font>
-                              <Font name="Calibri Bold" size="18.0" />
-                           </font>
-                        </TextField>
+                        <ComboBox fx:id="comboMember" editable="true" onKeyPressed="#memberSearch" prefHeight="25.0" prefWidth="230.0">
+                           <styleClass>
+                              <String fx:value="combo-color" />
+                              <String fx:value="combo-text" />
+                           </styleClass>
+                           <stylesheets>
+                              <URL value="@../../css/formStyle.css" />
+                              <URL value="@paymentStyle.css" />
+                           </stylesheets>
+                        </ComboBox>
                      </children>
                   </VBox>
                   <VBox layoutX="10.0" layoutY="10.0" prefHeight="88.0" prefWidth="320.0">
@@ -57,7 +61,7 @@
                         </Label>
                         <ComboBox fx:id="comboMembership" prefHeight="25.0" prefWidth="230.0">
                            <styleClass>
-                              <String fx:value="button-color" />
+                              <String fx:value="combo-color" />
                               <String fx:value="combo-text" />
                            </styleClass>
                            <stylesheets>
@@ -107,7 +111,7 @@
             </VBox>
          </children>
       </HBox>
-      <Pane layoutX="269.0" layoutY="586.0" prefHeight="80.0" prefWidth="265.0">
+      <Pane layoutX="268.0" layoutY="300.0" prefHeight="80.0" prefWidth="265.0">
          <children>
             <Button fx:id="btnConfirm" layoutX="45.0" layoutY="13.0" mnemonicParsing="false" onAction="#confirmation" prefHeight="55.0" prefWidth="175.0" styleClass="button-color" stylesheets="@../../css/formStyle.css" text="CONFIRM" textFill="WHITE">
                <font>
@@ -117,7 +121,6 @@
          </children>
       </Pane>
       <FontAwesomeIcon fx:id="close" glyphName="CLOSE" layoutX="756.0" layoutY="35.0" size="24" styleClass="text-color" />
-      <Pane layoutX="48.0" layoutY="38.0" prefHeight="239.0" prefWidth="708.0" styleClass="border-color" stylesheets="@paymentStyle.css" />
    </children>
    <stylesheets>
       <URL value="@paymentStyle.css" />
