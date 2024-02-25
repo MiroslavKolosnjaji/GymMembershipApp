@@ -6,12 +6,12 @@ Desctop application for storing records for fitness business. Purpose of this ap
 
 
 ## 🖥 Techologies 
+<div style = "display: inline-block">
 <img src= https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png alt= "test" width= 100 height = 100>
 <img src= https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png alt= "test" width= 100 height = 100>
 <img src= https://user-images.githubusercontent.com/25181517/117207242-07d5a700-adf4-11eb-975e-be04e62b984b.png alt= "test" width= 100 height = 100>
-
-![](https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/Icons/JavaFX_Logo.png) 
-
+<img src=https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/Icons/JavaFX_Logo.png alt= "test" width= 100 height = 100> 
+</div>
 
 
 ## 📸 GUI lookup 
