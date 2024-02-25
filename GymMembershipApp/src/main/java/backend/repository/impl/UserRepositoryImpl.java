@@ -10,6 +10,7 @@ import backend.repository.UserRepository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Miroslav Kološnjaji
@@ -127,8 +128,8 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findById(Long aLong) throws RepositoryException {
-        return null;
+    public Optional<User> findById(Long aLong) throws RepositoryException {
+        return Optional.empty();
     }
 
     @Override

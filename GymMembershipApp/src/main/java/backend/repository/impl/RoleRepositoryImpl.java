@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Miroslav Kološnjaji
@@ -119,7 +120,7 @@ public class RoleRepositoryImpl implements RoleRepository {
     }
 
     @Override
-    public Role findById(Long aLong) throws RepositoryException {
-        return null;
+    public Optional<Role> findById(Long aLong) throws RepositoryException {
+        return Optional.empty();
     }
 }

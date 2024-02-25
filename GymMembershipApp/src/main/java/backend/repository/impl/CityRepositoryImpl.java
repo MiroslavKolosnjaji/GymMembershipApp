@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Miroslav Kološnjaji
@@ -122,7 +123,7 @@ public class CityRepositoryImpl implements CityRepository {
     }
 
     @Override
-    public City findById(Long aLong) throws RepositoryException {
-        return null;
+    public Optional<City> findById(Long aLong) throws RepositoryException {
+        return Optional.empty();
     }
 }

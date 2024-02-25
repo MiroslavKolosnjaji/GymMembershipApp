@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Miroslav Kološnjaji
@@ -127,7 +128,7 @@ public class MemberRepositoryImpl implements MemberRepository {
     }
 
     @Override
-    public Member findById(Long aLong) throws RepositoryException {
-        return null;
+    public Optional<Member> findById(Long aLong) throws RepositoryException {
+        return Optional.empty();
     }
 }
