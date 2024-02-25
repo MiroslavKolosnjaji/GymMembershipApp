@@ -5,6 +5,7 @@ module com.example.gymmembership{
     requires com.dlsc.formsfx;
     requires java.sql;
     requires fontawesomefx;
+    requires de.svws_nrw.external.jbcrypt;
 
     opens backend to javafx.fxml;
     exports backend;
@@ -22,6 +23,7 @@ module com.example.gymmembership{
     opens frontend.controller.user to javafx.fxml;
     exports frontend.controller.payment;
     opens frontend.controller.payment to javafx.fxml;
+
 
 
 }

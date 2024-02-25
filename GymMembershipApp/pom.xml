@@ -59,6 +59,15 @@
             <artifactId>fontawesomefx</artifactId>
             <version>8.2</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.svws-nrw.ext/jbcrypt -->
+        <dependency>
+            <groupId>de.svws-nrw.ext</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4.7</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
