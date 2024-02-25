@@ -1,5 +1,6 @@
 package backend;
 
+import backend.util.PasswordManager;
 import frontend.controller.login.LoginController;
 import backend.repository.UserRepository;
 import backend.repository.impl.UserRepositoryImpl;
@@ -26,7 +27,7 @@ public class GymMembershipApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         userRepository = new UserRepositoryImpl();
-        userService = new UserServiceImpl(userRepository);
+        userService = new UserServiceImpl(userRepository, new PasswordManager());
 
         var location = GymMembershipApplication.class.getResource("/form/login/login_form.fxml");
         System.out.println(location);

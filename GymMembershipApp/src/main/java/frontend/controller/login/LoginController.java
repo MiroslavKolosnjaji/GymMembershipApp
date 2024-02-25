@@ -1,5 +1,8 @@
 package frontend.controller.login;
 
+import backend.exception.InvalidPasswordException;
+import backend.exception.RepositoryException;
+import backend.exception.UserNotFoundException;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import frontend.controller.ControllerEffectsUtil;
 import backend.database.Database;
@@ -23,6 +26,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Optional;
 
 
 public class LoginController {
@@ -96,16 +100,16 @@ public class LoginController {
         }
 
         try {
-            User user = userService.login(new User(email, password));
+            Optional<User> user = userService.login(new User(email, password));
 
-            if (user != null) {
+            if (user.isPresent()) {
                 openMainForm();
                 System.out.println("User: " + user);
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.close();
             }
 
-        } catch (Exception e) {
+        } catch (UserNotFoundException | InvalidPasswordException | RepositoryException e) {
             ControllerUtil.showAlert(Alert.AlertType.WARNING, "WARNING", e.getMessage());
         }
 

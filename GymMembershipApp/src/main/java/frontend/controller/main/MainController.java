@@ -16,6 +16,7 @@ import backend.service.impl.CityServiceImpl;
 import backend.service.impl.GymServiceImpl;
 import backend.service.impl.MemberServiceImpl;
 import backend.service.impl.UserServiceImpl;
+import backend.util.PasswordManager;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
@@ -102,6 +103,7 @@ public class MainController implements Initializable {
     private GymService gymService;
     private UserService userService;
     private MemberService memberService;
+    private PasswordManager passwordManager;
 
 
     public MainController() {
@@ -113,7 +115,7 @@ public class MainController implements Initializable {
         this.gymService = new GymServiceImpl(gymRepository);
 
         UserRepository userRepository = new UserRepositoryImpl();
-        this.userService = new UserServiceImpl(userRepository);
+        this.userService = new UserServiceImpl(userRepository, passwordManager);
 
         MemberRepository memberRepository = new MemberRepositoryImpl();
         this.memberService = new MemberServiceImpl(memberRepository);
@@ -124,6 +126,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         populateTable();
         populateCombo();
+        passwordManager = new PasswordManager();
     }
 
 

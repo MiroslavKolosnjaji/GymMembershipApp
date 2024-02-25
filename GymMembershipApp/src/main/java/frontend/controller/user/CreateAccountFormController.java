@@ -76,7 +76,7 @@ public class CreateAccountFormController implements Initializable {
 
     @FXML
     void createAccount(ActionEvent event) {
-        Map<String, TextField> fieldMap = Map.of("firstName", txtFirstName, "lastName", txtLastName, "email",txtEmail, "password", txtPassword);
+        Map<String, TextField> fieldMap = Map.of("firstName", txtFirstName, "lastName", txtLastName, "email",txtEmail, "password", txtPassword, "confirmPassword", txtConfirmPassword);
         CreateAccountFormControllerImpl.insert(fieldMap, userService);
     }
 
