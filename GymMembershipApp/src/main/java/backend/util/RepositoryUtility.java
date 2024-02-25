@@ -1,4 +1,4 @@
-package backend.repository;
+package backend.util;
 
 import backend.database.Database;
 import backend.exception.DatabaseException;

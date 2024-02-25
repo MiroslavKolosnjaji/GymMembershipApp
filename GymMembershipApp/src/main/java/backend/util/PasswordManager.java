@@ -1,12 +1,10 @@
 package backend.util;
 
-
+import de.svws_nrw.ext.jbcrypt.BCrypt;
 
 /**
  * @author Miroslav Kološnjaji
  */
-import de.svws_nrw.ext.jbcrypt.BCrypt;
-
 public class PasswordManager {
 
     public String hashPassword(String password){
