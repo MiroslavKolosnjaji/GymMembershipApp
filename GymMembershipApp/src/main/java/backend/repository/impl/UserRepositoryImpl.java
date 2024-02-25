@@ -18,21 +18,23 @@ import java.util.Optional;
 public class UserRepositoryImpl implements UserRepository {
 
     private final Database db = Database.getInstance();
+
     @Override
     public void add(User user) throws RepositoryException {
-        try{
+        try {
             String call = "CALL insert_user(?,?,?,?,?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setString(1, user.getFirstName());
             callableStatement.setString(2, user.getLastName());
             callableStatement.setString(3, user.getPhone());
             callableStatement.setString(4, user.getEmail());
-            callableStatement.setLong(5, user.getCity().getCityId());
+            callableStatement.setString(5, user.getPassword());
+
             callableStatement.executeUpdate();
 
             callableStatement.close();
             db.confirmTransaction();
-        }catch (SQLException | DatabaseException exception){
+        } catch (SQLException | DatabaseException exception) {
             try {
                 db.cancelTransaction();
             } catch (DatabaseException e) {
@@ -45,7 +47,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void update(User user) throws RepositoryException {
-        try{
+        try {
             String call = "CALL update_user(?,?,?,?,?,?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, user.getUserId());
@@ -58,7 +60,7 @@ public class UserRepositoryImpl implements UserRepository {
 
             callableStatement.close();
             db.confirmTransaction();
-        }catch (SQLException | DatabaseException exception){
+        } catch (SQLException | DatabaseException exception) {
             try {
                 db.cancelTransaction();
             } catch (DatabaseException e) {
@@ -71,7 +73,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void delete(User user) throws RepositoryException {
-        try{
+        try {
             String call = "CALL delete_user(?)";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             callableStatement.setLong(1, user.getUserId());
@@ -79,7 +81,7 @@ public class UserRepositoryImpl implements UserRepository {
 
             callableStatement.close();
             db.confirmTransaction();
-        }catch (SQLException | DatabaseException exception){
+        } catch (SQLException | DatabaseException exception) {
             try {
                 db.cancelTransaction();
             } catch (DatabaseException e) {
@@ -92,14 +94,14 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> getAll() throws RepositoryException {
-        try{
+        try {
             List<User> userList = new ArrayList<>();
 
             String call = "CALL get_all_users()";
             CallableStatement callableStatement = db.getConnection().prepareCall(call);
             ResultSet resultSet = callableStatement.executeQuery();
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Long id = resultSet.getLong("user_id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
@@ -108,7 +110,7 @@ public class UserRepositoryImpl implements UserRepository {
                 String password = resultSet.getString("password");
                 Long cityId = resultSet.getLong("city_id");
 
-                userList.add(new User(id,firstName,lastName,null, phone,email, password, new City(cityId)));
+                userList.add(new User(id, firstName, lastName, null, phone, email, password, new City(cityId)));
             }
 
             resultSet.close();
@@ -116,7 +118,7 @@ public class UserRepositoryImpl implements UserRepository {
             db.confirmTransaction();
             return userList;
 
-        }catch (SQLException | DatabaseException exception){
+        } catch (SQLException | DatabaseException exception) {
             try {
                 db.cancelTransaction();
             } catch (DatabaseException e) {
@@ -134,7 +136,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> login(User user) throws RepositoryException {
-        try{
+        try {
             List<User> users = new ArrayList<>();
 
             String query = "SELECT user_id, first_name, last_name, phone, email, password, city_id FROM `USER` WHERE email = ? AND password = ?";
@@ -143,13 +145,13 @@ public class UserRepositoryImpl implements UserRepository {
             preparedStatement.setString(2, user.getPassword());
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Long id = resultSet.getLong("user_id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 String email = resultSet.getString("email");
                 String phone = resultSet.getString("phone");
-                String password = resultSet.getString("email");
+                String password = resultSet.getString("password");
                 Long cityId = resultSet.getLong("city_id");
 
                 users.add(new User(id, firstName, lastName, null, phone, email, password, new City(cityId)));
@@ -160,7 +162,7 @@ public class UserRepositoryImpl implements UserRepository {
             db.confirmTransaction();
             return users;
 
-        }catch (SQLException | DatabaseException exception){
+        } catch (SQLException | DatabaseException exception) {
             try {
                 db.cancelTransaction();
             } catch (DatabaseException e) {
@@ -168,6 +170,47 @@ public class UserRepositoryImpl implements UserRepository {
             }
             exception.printStackTrace();
             throw new RepositoryException("An error occured while searching for user in database");
+        }
+    }
+
+    @Override
+    public Optional<User> findByEmail(User user) throws RepositoryException {
+
+        try {
+
+            List<Optional<User>> users = new ArrayList<>();
+
+            String query = "SELECT user_id, first_name, last_name, phone, email, password, city_id FROM `USER` WHERE email = ?";
+            PreparedStatement preparedStatement = db.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, user.getEmail());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Long id = resultSet.getLong("user_id");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String email = resultSet.getString("email");
+                String phone = resultSet.getString("phone");
+                String password = resultSet.getString("password");
+                Long cityId = resultSet.getLong("city_id");
+                users.add(Optional.of(new User(id, firstName, lastName, null, phone, email, password, new City(cityId))));
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+            db.confirmTransaction();
+
+            return users.getFirst();
+
+        } catch (SQLException | DatabaseException exception) {
+            try {
+                db.cancelTransaction();
+            } catch (DatabaseException e) {
+                e.printStackTrace();
+            }
+
+            exception.printStackTrace();
+            throw new RepositoryException("An error occured while searching user by email.");
         }
     }
 }
