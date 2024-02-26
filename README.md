@@ -1,6 +1,6 @@
 # GymMembershipApp
 
-Desctop application for storing records for fitness business. Purpose of this application is to store memeber data, their payment, have insight into statistics of payments by month and more.
+Desktop application for storing records for fitness business. Purpose of this application is to store memeber data, their payment, have insight into statistics of payments by month and more.
 
 ![Under Construction](https://img.shields.io/badge/Under%20Construction-goldenrod?style=plastic&logo=gear) 
 
