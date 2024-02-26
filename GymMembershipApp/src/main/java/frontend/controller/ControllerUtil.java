@@ -1,23 +1,16 @@
 package frontend.controller;
 
 import backend.database.Database;
-import backend.exception.DatabaseException;
-import frontend.controller.payment.PaymentFormController;
+import backend.exception.database.DatabaseException;
 import frontend.exception.UserInputException;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Map;

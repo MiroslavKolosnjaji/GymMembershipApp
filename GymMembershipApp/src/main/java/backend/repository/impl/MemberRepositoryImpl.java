@@ -2,8 +2,8 @@ package backend.repository.impl;
 
 import backend.database.Database;
 import backend.domain.Member;
-import backend.exception.DatabaseException;
-import backend.exception.RepositoryException;
+import backend.exception.database.DatabaseException;
+import backend.exception.repository.RepositoryException;
 import backend.repository.MemberRepository;
 
 import java.sql.CallableStatement;

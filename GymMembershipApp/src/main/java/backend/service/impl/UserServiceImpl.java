@@ -1,9 +1,9 @@
 package backend.service.impl;
 
 import backend.domain.User;
-import backend.exception.InvalidPasswordException;
-import backend.exception.RepositoryException;
-import backend.exception.UserNotFoundException;
+import backend.exception.service.InvalidPasswordException;
+import backend.exception.repository.RepositoryException;
+import backend.exception.service.UserNotFoundException;
 import backend.repository.UserRepository;
 import backend.service.UserService;
 import backend.util.PasswordManager;
@@ -27,8 +27,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public void add(User user) throws Exception {
         String hashPassword = passwordManager.hashPassword(user.getPassword());
-        System.out.println(hashPassword);
-        System.out.println("Duzina: " + hashPassword.length());
         user.setPassword(hashPassword);
         userRepository.add(user);
 

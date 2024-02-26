@@ -1,6 +1,6 @@
 package backend.database;
 
-import backend.exception.DatabaseException;
+import backend.exception.database.DatabaseException;
 import backend.util.DbUtil;
 
 import java.sql.*;

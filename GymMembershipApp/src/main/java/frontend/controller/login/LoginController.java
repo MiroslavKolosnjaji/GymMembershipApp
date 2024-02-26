@@ -1,13 +1,13 @@
 package frontend.controller.login;
 
-import backend.exception.InvalidPasswordException;
-import backend.exception.RepositoryException;
-import backend.exception.UserNotFoundException;
+import backend.exception.service.InvalidPasswordException;
+import backend.exception.repository.RepositoryException;
+import backend.exception.service.UserNotFoundException;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import frontend.controller.ControllerEffectsUtil;
 import backend.database.Database;
 import backend.domain.User;
-import backend.exception.DatabaseException;
+import backend.exception.database.DatabaseException;
 import backend.service.UserService;
 import frontend.controller.ControllerUtil;
 import frontend.controller.user.CreateAccountFormController;

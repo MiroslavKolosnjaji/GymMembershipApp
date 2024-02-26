@@ -3,8 +3,8 @@ package backend.repository.impl;
 import backend.database.Database;
 import backend.domain.City;
 import backend.domain.Gym;
-import backend.exception.DatabaseException;
-import backend.exception.RepositoryException;
+import backend.exception.database.DatabaseException;
+import backend.exception.repository.RepositoryException;
 import backend.repository.GymRepository;
 
 import java.sql.CallableStatement;

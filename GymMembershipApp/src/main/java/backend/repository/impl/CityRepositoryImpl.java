@@ -2,42 +2,35 @@ package backend.repository.impl;
 
 import backend.database.Database;
 import backend.domain.City;
-import backend.exception.DatabaseException;
-import backend.exception.RepositoryException;
+import backend.exception.database.DatabaseException;
+import backend.exception.repository.RepositoryException;
 import backend.repository.CityRepository;
+import backend.util.RepositoryUtility;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @author Miroslav Kološnjaji
  */
 public class CityRepositoryImpl implements CityRepository {
 
-    private Database db = Database.getInstance();
+    private final Database db = Database.getInstance();
+    private final Queue<Object> paramQueue = createParamQueue();
 
 
     @Override
     public void add(City city) throws RepositoryException {
         try {
             String call = "CALL insert_city(?,?)";
-            CallableStatement callableStatement = db.getConnection().prepareCall(call);
-            callableStatement.setString(1, city.getName());
-            callableStatement.setString(2, city.getName());
-            callableStatement.executeUpdate();
+            List<Object> list = List.of(city.getCityId(), city.getName());
+            paramQueue.addAll(list);
 
-            callableStatement.close();
-            db.confirmTransaction();
-        } catch (SQLException | DatabaseException exception) {
-            try {
-                db.cancelTransaction();
-            } catch (DatabaseException e) {
-                e.printStackTrace();
-            }
+            RepositoryUtility.executeUpdate(call, paramQueue);
+
+        } catch (DatabaseException exception) {
             exception.printStackTrace();
             throw new RepositoryException("An error occured while adding new city to database");
         }
