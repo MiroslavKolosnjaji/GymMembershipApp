@@ -1,7 +1,7 @@
 package frontend.controller.payment;
 
-import backend.domain.Member;
-import backend.service.MemberService;
+import server.domain.Member;
+import server.service.MemberService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 
 import java.net.URL;

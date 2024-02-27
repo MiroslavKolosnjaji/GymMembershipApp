@@ -1,16 +1,13 @@
 package frontend.controller.member.impl;
 
-import backend.domain.Member;
-import backend.service.MemberService;
+import server.domain.Member;
+import server.service.MemberService;
 import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
-import frontend.controller.member.MemberDataFormController;
-import frontend.exception.UserInputException;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.util.Map;
 

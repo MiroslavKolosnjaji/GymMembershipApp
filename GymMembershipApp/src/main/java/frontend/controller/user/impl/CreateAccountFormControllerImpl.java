@@ -1,7 +1,7 @@
 package frontend.controller.user.impl;
 
-import backend.domain.User;
-import backend.service.UserService;
+import server.domain.User;
+import server.service.UserService;
 import frontend.controller.ControllerUtil;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;

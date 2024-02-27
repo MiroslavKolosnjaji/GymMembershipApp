@@ -7,8 +7,8 @@ module com.example.gymmembership{
     requires fontawesomefx;
     requires de.svws_nrw.external.jbcrypt;
 
-    opens backend to javafx.fxml;
-    exports backend;
+    opens server to javafx.fxml;
+    exports server;
     exports frontend.controller;
     opens frontend.controller to javafx.fxml;
     exports frontend.controller.login;

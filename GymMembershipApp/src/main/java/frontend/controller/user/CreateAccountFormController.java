@@ -1,8 +1,7 @@
 package frontend.controller.user;
 
-import backend.service.UserService;
+import server.service.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import frontend.controller.ControllerEffectsUtil;
 import frontend.controller.ControllerUtil;
 import frontend.controller.user.impl.CreateAccountFormControllerImpl;
 import javafx.event.ActionEvent;
@@ -12,8 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.Effect;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;

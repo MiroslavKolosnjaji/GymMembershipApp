@@ -1,7 +1,7 @@
 package frontend.controller;
 
-import backend.database.Database;
-import backend.exception.database.DatabaseException;
+import server.database.Database;
+import server.exception.database.DatabaseException;
 import frontend.exception.UserInputException;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
