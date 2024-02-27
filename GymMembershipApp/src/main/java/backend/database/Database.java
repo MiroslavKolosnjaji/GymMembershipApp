@@ -7,7 +7,7 @@ import java.sql.*;
 
 /**
  * @author Miroslav Kološnjaji
- */
+  */
 public class Database {
 
     private static final Database INSTANCE = new Database();
