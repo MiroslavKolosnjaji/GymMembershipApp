@@ -1,7 +1,7 @@
 package backend.repository;
 
 import backend.domain.User;
-import backend.exception.RepositoryException;
+import backend.exception.repository.RepositoryException;
 
 import java.util.List;
 import java.util.Optional;

@@ -3,14 +3,13 @@ package backend.repository.impl;
 import backend.database.Database;
 import backend.domain.City;
 import backend.domain.User;
-import backend.exception.DatabaseException;
-import backend.exception.RepositoryException;
+import backend.exception.database.DatabaseException;
+import backend.exception.repository.RepositoryException;
 import backend.repository.UserRepository;
+import backend.util.RepositoryUtility;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @author Miroslav Kološnjaji
@@ -18,28 +17,19 @@ import java.util.Optional;
 public class UserRepositoryImpl implements UserRepository {
 
     private final Database db = Database.getInstance();
+    private final Queue<Object> paramQueue = createParamQueue();
 
     @Override
     public void add(User user) throws RepositoryException {
         try {
-            String call = "CALL insert_user(?,?,?,?,?)";
-            CallableStatement callableStatement = db.getConnection().prepareCall(call);
-            callableStatement.setString(1, user.getFirstName());
-            callableStatement.setString(2, user.getLastName());
-            callableStatement.setString(3, user.getPhone());
-            callableStatement.setString(4, user.getEmail());
-            callableStatement.setString(5, user.getPassword());
+            String call = "CALL insert_user(?,?,?,?)";
+            List<Object> list = Arrays.asList(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword());
+            paramQueue.addAll(list);
 
-            callableStatement.executeUpdate();
+            RepositoryUtility.executeUpdate(call, paramQueue );
 
-            callableStatement.close();
-            db.confirmTransaction();
-        } catch (SQLException | DatabaseException exception) {
-            try {
-                db.cancelTransaction();
-            } catch (DatabaseException e) {
-                e.printStackTrace();
-            }
+        } catch ( DatabaseException exception) {
+
             exception.printStackTrace();
             throw new RepositoryException("An error occured while adding user into database");
         }
@@ -48,24 +38,18 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void update(User user) throws RepositoryException {
         try {
-            String call = "CALL update_user(?,?,?,?,?,?)";
-            CallableStatement callableStatement = db.getConnection().prepareCall(call);
-            callableStatement.setLong(1, user.getUserId());
-            callableStatement.setString(2, user.getFirstName());
-            callableStatement.setString(3, user.getLastName());
-            callableStatement.setString(4, user.getPhone());
-            callableStatement.setString(5, user.getEmail());
-            callableStatement.setLong(6, user.getCity().getCityId());
-            callableStatement.executeUpdate();
+            if(user.getPhone() == null)
+                user.setPhone("");
+            if(user.getCity() == null)
+                user.setCity(new City());
 
-            callableStatement.close();
-            db.confirmTransaction();
-        } catch (SQLException | DatabaseException exception) {
-            try {
-                db.cancelTransaction();
-            } catch (DatabaseException e) {
-                e.printStackTrace();
-            }
+            String call = "CALL update_user(?,?,?,?,?,?)";
+            List<Object> list = Arrays.asList(user.getUserId(), user.getFirstName(), user.getLastName(), user.getPhone(), user.getEmail(), user.getCity().getCityId());
+            paramQueue.addAll(list);
+
+            RepositoryUtility.executeUpdate(call, paramQueue);
+
+        } catch (DatabaseException exception) {
             exception.printStackTrace();
             throw new RepositoryException("An error occured while updating user in database");
         }
@@ -75,18 +59,10 @@ public class UserRepositoryImpl implements UserRepository {
     public void delete(User user) throws RepositoryException {
         try {
             String call = "CALL delete_user(?)";
-            CallableStatement callableStatement = db.getConnection().prepareCall(call);
-            callableStatement.setLong(1, user.getUserId());
-            callableStatement.executeUpdate();
+            paramQueue.add(user.getUserId());
+            RepositoryUtility.executeUpdate(call, paramQueue);
 
-            callableStatement.close();
-            db.confirmTransaction();
-        } catch (SQLException | DatabaseException exception) {
-            try {
-                db.cancelTransaction();
-            } catch (DatabaseException e) {
-                e.printStackTrace();
-            }
+        } catch (DatabaseException exception) {
             exception.printStackTrace();
             throw new RepositoryException("An error occured while deleting user in database");
         }
