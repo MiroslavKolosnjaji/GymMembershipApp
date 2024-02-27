@@ -1,9 +1,9 @@
-package frontend.controller.user;
+package client.controller.user;
 
 import server.service.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import frontend.controller.ControllerUtil;
-import frontend.controller.user.impl.CreateAccountFormControllerImpl;
+import client.controller.ControllerUtil;
+import client.controller.user.impl.CreateAccountFormControllerImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

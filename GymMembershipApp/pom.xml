@@ -74,7 +74,7 @@
 
         <resources>
             <resource>
-                <directory>src/main/java/frontend/form</directory>
+                <directory>src/main/java/client/form</directory>
             </resource>
         </resources>
 

@@ -1,4 +1,4 @@
-package frontend.controller.main;
+package client.controller.main;
 
 import server.repository.CityRepository;
 import server.repository.GymRepository;
@@ -18,11 +18,11 @@ import server.service.impl.MemberServiceImpl;
 import server.service.impl.UserServiceImpl;
 import server.util.PasswordManager;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import frontend.controller.ControllerEffectsUtil;
-import frontend.controller.ControllerUtil;
-import frontend.controller.member.MemberDataFormController;
-import frontend.controller.payment.PaymentFormController;
-import frontend.controller.statistics.StatisticsFormController;
+import client.controller.ControllerEffectsUtil;
+import client.controller.ControllerUtil;
+import client.controller.member.MemberDataFormController;
+import client.controller.payment.PaymentFormController;
+import client.controller.statistics.StatisticsFormController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

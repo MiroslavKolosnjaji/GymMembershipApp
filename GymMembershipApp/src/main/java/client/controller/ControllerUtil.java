@@ -1,8 +1,8 @@
-package frontend.controller;
+package client.controller;
 
 import server.database.Database;
 import server.exception.database.DatabaseException;
-import frontend.exception.UserInputException;
+import client.exception.UserInputException;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

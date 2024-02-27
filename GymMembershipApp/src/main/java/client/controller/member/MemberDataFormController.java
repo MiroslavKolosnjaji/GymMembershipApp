@@ -1,8 +1,8 @@
-package frontend.controller.member;
+package client.controller.member;
 
 import server.service.MemberService;
-import frontend.controller.ControllerEffectsUtil;
-import frontend.controller.member.impl.MemberDataFormControllerImpl;
+import client.controller.ControllerEffectsUtil;
+import client.controller.member.impl.MemberDataFormControllerImpl;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;

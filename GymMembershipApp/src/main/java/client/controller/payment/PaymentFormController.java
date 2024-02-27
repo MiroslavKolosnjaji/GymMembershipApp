@@ -1,4 +1,4 @@
-package frontend.controller.payment;
+package client.controller.payment;
 
 import server.domain.Member;
 import server.service.MemberService;

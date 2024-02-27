@@ -1,6 +1,5 @@
-package frontend.controller;
+package client.controller;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;

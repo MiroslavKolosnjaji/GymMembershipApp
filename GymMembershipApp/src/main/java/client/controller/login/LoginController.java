@@ -1,16 +1,16 @@
-package frontend.controller.login;
+package client.controller.login;
 
 import server.exception.service.InvalidPasswordException;
 import server.exception.repository.RepositoryException;
 import server.exception.service.UserNotFoundException;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import frontend.controller.ControllerEffectsUtil;
+import client.controller.ControllerEffectsUtil;
 import server.database.Database;
 import server.domain.User;
 import server.exception.database.DatabaseException;
 import server.service.UserService;
-import frontend.controller.ControllerUtil;
-import frontend.controller.user.CreateAccountFormController;
+import client.controller.ControllerUtil;
+import client.controller.user.CreateAccountFormController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

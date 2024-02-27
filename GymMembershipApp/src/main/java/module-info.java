@@ -9,20 +9,20 @@ module com.example.gymmembership{
 
     opens server to javafx.fxml;
     exports server;
-    exports frontend.controller;
-    opens frontend.controller to javafx.fxml;
-    exports frontend.controller.login;
-    opens frontend.controller.login to javafx.fxml;
-    exports frontend.controller.main;
-    opens frontend.controller.main to javafx.fxml;
-    exports frontend.controller.member;
-    opens  frontend.controller.member to javafx.fxml;
-    exports frontend.controller.statistics;
-    opens frontend.controller.statistics to javafx.fxml;
-    exports frontend.controller.user;
-    opens frontend.controller.user to javafx.fxml;
-    exports frontend.controller.payment;
-    opens frontend.controller.payment to javafx.fxml;
+    exports client.controller;
+    opens client.controller to javafx.fxml;
+    exports client.controller.login;
+    opens client.controller.login to javafx.fxml;
+    exports client.controller.main;
+    opens client.controller.main to javafx.fxml;
+    exports client.controller.member;
+    opens  client.controller.member to javafx.fxml;
+    exports client.controller.statistics;
+    opens client.controller.statistics to javafx.fxml;
+    exports client.controller.user;
+    opens client.controller.user to javafx.fxml;
+    exports client.controller.payment;
+    opens client.controller.payment to javafx.fxml;
 
 
 

@@ -1,7 +1,7 @@
 package server;
 
 import server.util.PasswordManager;
-import frontend.controller.login.LoginController;
+import client.controller.login.LoginController;
 import server.repository.UserRepository;
 import server.repository.impl.UserRepositoryImpl;
 import server.service.UserService;

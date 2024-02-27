@@ -1,4 +1,4 @@
-package frontend.controller.statistics;
+package client.controller.statistics;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

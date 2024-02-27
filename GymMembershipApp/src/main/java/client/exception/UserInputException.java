@@ -1,4 +1,4 @@
-package frontend.exception;
+package client.exception;
 
 /**
  * @author Miroslav Kološnjaji

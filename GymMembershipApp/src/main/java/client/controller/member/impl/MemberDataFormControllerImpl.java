@@ -1,9 +1,9 @@
-package frontend.controller.member.impl;
+package client.controller.member.impl;
 
 import server.domain.Member;
 import server.service.MemberService;
-import frontend.controller.ControllerEffectsUtil;
-import frontend.controller.ControllerUtil;
+import client.controller.ControllerEffectsUtil;
+import client.controller.ControllerUtil;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
