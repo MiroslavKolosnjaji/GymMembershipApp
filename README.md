@@ -7,14 +7,17 @@ Desktop application for storing records for fitness business. Purpose of this ap
 
 ## 🖥 Techologies 
 <div style = "display: inline-block">
-<img src= https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png alt= "Java" width= 100 height = 100 style= "margin-right: 20px">
-<img width="50">
+<img src= https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png alt= "Java" height = 100 style= "margin-right: 20px">
+<img width="15">
 <img src=https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/Icons/JavaFX_Logo.png alt= "JavaFX" height = 100 style= "margin-right: 20px"> 
-<img width="50">
-<img src= https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png alt= "MySQL" width= 100 height = 100 style= "margin-right: 20px">
-<img width="50">
-<img src= https://user-images.githubusercontent.com/25181517/117207242-07d5a700-adf4-11eb-975e-be04e62b984b.png alt= "Maven" width= 100 height = 100>
-<img width="50">
+<img width="15">
+<img src=https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png alt= "JavaFX" height = 100 style= "margin-right: 20px"> 
+<img width="15">
+<img src= https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png alt= "MySQL"  height = 100 style= "margin-right: 20px">
+<img width="15">
+<img src= https://user-images.githubusercontent.com/25181517/117207242-07d5a700-adf4-11eb-975e-be04e62b984b.png alt= "Maven" height = 100
+>
+<img width="15">
 </div>
 
 
