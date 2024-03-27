@@ -9,7 +9,7 @@ Desktop application for storing records for fitness business. Purpose of this ap
 <div style = "display: inline-block">
 <img src= https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png alt= "Java" height = 100 style= "margin-right: 20px">
 <img width="15">
-<img src=https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/Icons/JavaFX_Logo.png alt= "JavaFX" height = 100 style= "margin-right: 20px"> 
+<img src=https://github.com/MiroslavKolosnjaji/GymMembershipApp/blob/development/Icons/JavaFX_Logo.png alt= "JavaFX" height = 100 style= "margin-right: 20px"> 
 <img width="15">
 <img src=https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png alt= "JavaFX" height = 100 style= "margin-right: 20px"> 
 <img width="15">
@@ -28,23 +28,23 @@ Here is some forms that are created but not finished completly.
 
 1. **Login Form**
 
-![Login form](https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/GymMembership%20images/LoginForm.png)
+![Login form](https://github.com/MiroslavKolosnjaji/GymMembershipApp/blob/development/GymMembership%20images/LoginForm.png)
 
 2. **Create Account Form**
 
-![Create account form](https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/GymMembership%20images/CreateAccountForm.png)
+![Create account form](https://github.com/MiroslavKolosnjaji/GymMembershipApp/blob/development/GymMembership%20images/CreateAccountForm.png)
 
 3. **Main Form**
 
-![Main form](https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/GymMembership%20images/MainForm.png)
+![Main form](https://github.com/MiroslavKolosnjaji/GymMembershipApp/blob/development/GymMembership%20images/MainForm.png)
 
 4. **Create new Member Form**
    
-![Create new member form](https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/GymMembership%20images/CreateNewMemberForm.png)
+![Create new member form](https://github.com/MiroslavKolosnjaji/GymMembershipApp/blob/development/GymMembership%20images/CreateNewMemberForm.png)
 
 5. **Payment Form**
    
-![New payment form](https://github.com/MiroslavKolosnjaji/ProjectImages/blob/main/GymMembership%20images/NewPayment.png)
+![New payment form](https://github.com/MiroslavKolosnjaji/GymMembershipApp/blob/development/GymMembership%20images/NewPayment.png)
 
 
 
